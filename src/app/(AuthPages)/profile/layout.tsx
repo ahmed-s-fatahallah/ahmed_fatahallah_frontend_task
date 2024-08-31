@@ -1,13 +1,17 @@
-import SideBar from "@/app/SideBar";
+import SideBar from "@/app/(AuthPages)/profile/SideBar";
 import { ReactNode } from "react";
+import Header from "./Header";
 
 export default function layout({
   children,
 }: Readonly<{ children: ReactNode }>) {
   return (
     <>
-      <SideBar />
-      {children}
+      <Header />
+      <main className="flex">
+        <SideBar />
+        {children}
+      </main>
     </>
   );
 }
