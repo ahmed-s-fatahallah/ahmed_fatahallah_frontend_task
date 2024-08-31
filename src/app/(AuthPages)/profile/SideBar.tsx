@@ -11,8 +11,8 @@ import Link from "next/link";
 
 export default function SideBar() {
   return (
-    <aside className="py-10 px-7 min-h-dvh">
-      <section className="max-w-[329px] border-[1px] border-dark-gray-3 rounded-[40px] drop-shadow-sm min-h-full">
+    <aside className="py-10 px-7 min-h-dvh mt-[-94px]">
+      <section className="w-[329px] border-[1px] border-dark-gray-3 rounded-[40px] drop-shadow-sm min-h-full">
         <header>
           <CypartaIcon className="scale-75 mx-auto mt-5 mb-11" />
         </header>
