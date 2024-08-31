@@ -15,9 +15,12 @@ const config: Config = {
       },
       colors: {
         "bright-gray": "#E9E9E9",
-        "off-white": "#F9F9F9",
         "dark-gray": "#333333",
         "dark-gray-2": "#262626",
+        "dark-gray-3": "#A2A1A833",
+      },
+      dropShadow: {
+        sm: "1px 1px 3px 0px #CACACA26",
       },
     },
   },
