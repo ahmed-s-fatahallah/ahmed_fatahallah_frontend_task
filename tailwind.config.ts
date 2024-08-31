@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import { PluginAPI } from "tailwindcss/types/config";
 
 const config: Config = {
   content: [
@@ -16,14 +17,23 @@ const config: Config = {
       colors: {
         "bright-gray": "#E9E9E9",
         "dark-gray": "#333333",
+        "dark-gray-1": "#242223",
         "dark-gray-2": "#262626",
         "dark-gray-3": "#A2A1A833",
+        "dark-gray-4": "#A2A1A81A",
       },
       dropShadow: {
         sm: "1px 1px 3px 0px #CACACA26",
       },
     },
   },
-  plugins: [],
+  plugins: [
+    function ({ addBase }: PluginAPI) {
+      addBase({
+        label: { display: "block" },
+        input: { display: "block", width: "100%" },
+      });
+    },
+  ],
 };
 export default config;
