@@ -5,9 +5,11 @@ import EnvlopeIcon from "@/assets/images/gmail.svg";
 import LockIcon from "@/assets/images/lock.svg";
 import UserIcon from "@/assets/images/user.svg";
 import ChevronIcon from "@/assets/images/Vector.svg";
+import Button from "@/Components/Button";
+import InputField from "@/Components/InputField";
+import StyledLink from "@/Components/StyledLink";
 import { inter } from "@/Utils/fonts";
 import Image from "next/image";
-import Link from "next/link";
 
 export default function Profile() {
   return (
@@ -16,9 +18,9 @@ export default function Profile() {
         <div
           className={`${inter.className} flex gap-[14.3px] items-center mb-[30px] font-semibold`}
         >
-          <Link href="#">Employees</Link>
+          <StyledLink href="#">Employees</StyledLink>
           <ChevronIcon />
-          <Link href="#">Profile</Link>
+          <StyledLink href="#">Profile</StyledLink>
         </div>
         <div className="grid grid-cols-[repeat(2,auto)_1fr] grid-rows-[repeat(3,auto)] pb-[30px] border-b-dark-gray-3 border-b-[1px] gap-x-4 place-items-start">
           <Image
@@ -39,258 +41,157 @@ export default function Profile() {
             <EnvlopeIcon />
             <span>mariam@gmail.com</span>
           </h2>
-          <button className="px-5 py-[13px] me-[86px] col-start-3 col-span-1 row-start-2 -row-end-1 bg-dark-gray-1 rounded-[10px] place-self-end text-white font-light flex items-center gap-[10px]">
+          <Button
+            variant="edit"
+            className="col-start-3 col-span-1 row-start-2 -row-end-1 place-self-end"
+          >
             <EditIcon />
             <span>Edit Profile</span>
-          </button>
+          </Button>
         </div>
       </section>
       <section className="w-fit mt-6">
         <div className="pb-[9px] mb-[21px] flex gap-5 border-b-dark-gray-3 border-b-[1px] font-light pe-[6px]">
-          <button className="flex gap-[10px]">
+          <Button variant="tab">
             <UserIcon />
             <span>Personal Information</span>
-          </button>
-          <button className="flex gap-[10px]">
+          </Button>
+          <Button variant="tab">
             <CaseIcon />
             <span>Professional Information</span>
-          </button>
-          <button className="flex gap-[10px]">
+          </Button>
+          <Button variant="tab">
             <DocIcon />
             <span>Documents</span>
-          </button>
-          <button className="flex gap-[10px]">
+          </Button>
+          <Button variant="tab">
             <LockIcon />
             <span>Account Access</span>
-          </button>
+          </Button>
         </div>
         <form className="pe-[6px] grid grid-cols-2 gap-5">
-          <div className="border-dark-gray-4 border-b-[1px]">
-            <label
-              htmlFor="firstName"
-              className="mb-1 text-sm leading-[22px] text-[#A2A1A8] font-light"
-            >
-              First Name
-            </label>
-            <input
-              className="font-light text-[#16151C] mb-[10px]"
-              type="text"
-              id="firstName"
-              name="firstName"
-              value="Mariam"
-            />
-          </div>
-          <div className="border-dark-gray-4 border-b-[1px]">
-            <label
-              htmlFor="lastName"
-              className="mb-1 text-sm leading-[22px] text-[#A2A1A8] font-light"
-            >
-              Last Name
-            </label>
-            <input
-              className="font-light text-[#16151C] mb-[10px]"
-              type="text"
-              id="lastName"
-              name="lastName"
-              value="Aly"
-            />
-          </div>
-          <div className="border-dark-gray-4 border-b-[1px]">
-            <label
-              htmlFor="mobileNumber"
-              className="mb-1 text-sm leading-[22px] text-[#A2A1A8] font-light"
-            >
-              Mobile Number
-            </label>
-            <input
-              className="font-light text-[#16151C] mb-[10px]"
-              type="tel"
-              id="mobileNumber"
-              name="mobileNumber"
-              value="010567240256"
-            />
-          </div>
-          <div className="border-dark-gray-4 border-b-[1px]">
-            <label
-              htmlFor="email"
-              className="mb-1 text-sm leading-[22px] text-[#A2A1A8] font-light"
-            >
-              Email Address
-            </label>
-            <input
-              className="font-light text-[#16151C] mb-[10px]"
-              type="email"
-              id="email"
-              name="email"
-              value="mariam@gmail.com "
-            />
-          </div>
-          <div className="border-dark-gray-4 border-b-[1px]">
-            <label
-              htmlFor="birth"
-              className="mb-1 text-sm leading-[22px] text-[#A2A1A8] font-light"
-            >
-              Date of Birth
-            </label>
-            <input
-              className="font-light text-[#16151C] mb-[10px]"
-              type="text"
-              id="birth"
-              name="birth"
-              value="July 14, 1995"
-            />
-          </div>
-          <div className="border-dark-gray-4 border-b-[1px]">
-            <label
-              htmlFor="marital"
-              className="mb-1 text-sm leading-[22px] text-[#A2A1A8] font-light"
-            >
-              Marital Status
-            </label>
-            <input
-              className="font-light text-[#16151C] mb-[10px]"
-              type="text"
-              id="marital"
-              name="marital"
-              value="Single"
-            />
-          </div>
-          <div className="border-dark-gray-4 border-b-[1px]">
-            <label
-              htmlFor="gender"
-              className="mb-1 text-sm leading-[22px] text-[#A2A1A8] font-light"
-            >
-              Gender
-            </label>
-            <input
-              className="font-light text-[#16151C] mb-[10px]"
-              type="text"
-              id="gender"
-              name="gender"
-              value="Female"
-            />
-          </div>
-          <div className="border-dark-gray-4 border-b-[1px]">
-            <label
-              htmlFor="nationality"
-              className="mb-1 text-sm leading-[22px] text-[#A2A1A8] font-light"
-            >
-              Nationality
-            </label>
-            <input
-              className="font-light text-[#16151C] mb-[10px]"
-              type="text"
-              id="nationality"
-              name="nationality"
-              value="Egypt"
-            />
-          </div>
-          <div className="border-dark-gray-4 border-b-[1px]">
-            <label
-              htmlFor="address"
-              className="mb-1 text-sm leading-[22px] text-[#A2A1A8] font-light"
-            >
-              Address
-            </label>
-            <input
-              className="font-light text-[#16151C] mb-[10px]"
-              type="text"
-              id="address"
-              name="address"
-              value="Maadi"
-            />
-          </div>
-          <div className="border-dark-gray-4 border-b-[1px]">
-            <label
-              htmlFor="city"
-              className="mb-1 text-sm leading-[22px] text-[#A2A1A8] font-light"
-            >
-              City
-            </label>
-            <input
-              className="font-light text-[#16151C] mb-[10px]"
-              type="text"
-              id="city"
-              name="city"
-              value="Cairo"
-            />
-          </div>
-          <div className="border-dark-gray-4 border-b-[1px]">
-            <label
-              htmlFor="state"
-              className="mb-1 text-sm leading-[22px] text-[#A2A1A8] font-light"
-            >
-              State
-            </label>
-            <input
-              className="font-light text-[#16151C] mb-[10px]"
-              type="text"
-              id="state"
-              name="state"
-              value="Cairo"
-            />
-          </div>
-          <div className="border-dark-gray-4 border-b-[1px]">
-            <label
-              htmlFor="code"
-              className="mb-1 text-sm leading-[22px] text-[#A2A1A8] font-light"
-            >
-              Zip Code
-            </label>
-            <input
-              className="font-light text-[#16151C] mb-[10px]"
-              type="text"
-              id="code"
-              name="code"
-              value="35624"
-            />
-          </div>
-          <div className="border-dark-gray-4 border-b-[1px]">
-            <label
-              htmlFor="hours"
-              className="mb-1 text-sm leading-[22px] text-[#A2A1A8] font-light"
-            >
-              Work’s hours
-            </label>
-            <input
-              className="font-light text-[#16151C] mb-[10px]"
-              type="text"
-              id="hours"
-              name="hours"
-              value="180 hour"
-            />
-          </div>
+          <InputField
+            variant="profile"
+            type="text"
+            name="firstName"
+            defaultValue="Mariam"
+          >
+            First Name
+          </InputField>
+          <InputField
+            variant="profile"
+            type="text"
+            name="lastName"
+            defaultValue="Aly"
+          >
+            Last Name
+          </InputField>
+          <InputField
+            variant="profile"
+            type="tel"
+            name="mobileNumber"
+            defaultValue="010567240256"
+          >
+            Mobile Number
+          </InputField>
+          <InputField
+            variant="profile"
+            type="email"
+            name="email"
+            defaultValue="mariam@gmail.com"
+          >
+            Email Address
+          </InputField>
+          <InputField
+            variant="profile"
+            type="date"
+            name="birth"
+            defaultValue="July 14, 1995"
+          >
+            Date of Birth
+          </InputField>
+          <InputField
+            variant="profile"
+            type="text"
+            name="status"
+            defaultValue="Single"
+          >
+            Marital Status
+          </InputField>
+          <InputField
+            variant="profile"
+            type="text"
+            name="gender"
+            defaultValue="Female"
+          >
+            Gender
+          </InputField>
+          <InputField
+            variant="profile"
+            type="text"
+            name="nationality"
+            defaultValue="Egypt"
+          >
+            Nationality
+          </InputField>
+          <InputField
+            variant="profile"
+            type="text"
+            name="address"
+            defaultValue="Maadi"
+          >
+            Address
+          </InputField>
+          <InputField
+            variant="profile"
+            type="text"
+            name="city"
+            defaultValue="Cairo"
+          >
+            City
+          </InputField>
+          <InputField
+            variant="profile"
+            type="text"
+            name="state"
+            defaultValue="Cairo"
+          >
+            State
+          </InputField>
+          <InputField
+            variant="profile"
+            type="text"
+            name="code"
+            defaultValue="35624"
+          >
+            Zip Code
+          </InputField>
+          <InputField
+            variant="profile"
+            type="text"
+            name="hours"
+            defaultValue="180 hour"
+          >
+            Work&apos;s hours
+          </InputField>
           <div className="border-dark-gray-4 border-b-[1px] flex">
-            <div>
-              <label
-                htmlFor="hourSalary"
-                className="mb-1 text-sm leading-[22px] text-[#A2A1A8] font-light"
-              >
-                Salary/hour
-              </label>
-              <input
-                className="font-light text-[#16151C] mb-[10px]"
-                type="text"
-                id="hourSalary"
-                name="hourSalary"
-                value="300 EGP"
-              />
-            </div>
-            <div>
-              <label
-                htmlFor="totalSalary"
-                className="mb-1 text-sm leading-[22px] text-[#A2A1A8] font-light"
-              >
-                Total Salary
-              </label>
-              <input
-                className="font-light text-[#16151C] mb-[10px]"
-                type="text"
-                id="totalSalary"
-                name="totalSalary"
-                value="54000 EGP"
-              />
-            </div>
+            <InputField
+              variant="profile"
+              type="text"
+              name="hourSalary"
+              defaultValue="300 EGP"
+            >
+              Salary/hour
+            </InputField>
+            <InputField
+              variant="profile"
+              labelClassName="text-dark-red-2"
+              type="text"
+              name="totalSalary"
+              defaultValue="54000 EGP"
+            >
+              Total Salary
+            </InputField>
           </div>
         </form>
       </section>

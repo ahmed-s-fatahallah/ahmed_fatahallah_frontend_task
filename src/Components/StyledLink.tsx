@@ -15,7 +15,7 @@ type StyledLinkStylesMapper = Record<Variant, ClassNameValue>;
 const styledLinkStylesMapper: StyledLinkStylesMapper = {
   "main-sidebar": "flex gap-5 items-center w-full",
   "sub-sidebar": "flex gap-[10px] mb-5 font-light items-center w-full",
-};
+} as const;
 
 export default function StyledLink({
   variant,
