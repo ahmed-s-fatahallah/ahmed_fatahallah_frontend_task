@@ -12,7 +12,7 @@ export default function Login() {
         <form
           method="POST"
           action=""
-          className="border-[0.6px] border-bright-gray rounded-2xl"
+          className="border-[0.6px] border-light-gray rounded-2xl"
         >
           <div className="my-[84px] mx-auto w-fit mr-6 text-[17px] font-semibold leading-8 text-dark-gray-2">
             <InputField
