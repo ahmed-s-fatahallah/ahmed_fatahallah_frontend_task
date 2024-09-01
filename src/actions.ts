@@ -50,3 +50,8 @@ export const login = async (prevState: any, formData: FormData) => {
   }
   redirect("/employees/profile", RedirectType.replace);
 };
+
+export const logout = async () => {
+  cookies().delete("access");
+  redirect("/login", RedirectType.replace);
+};
