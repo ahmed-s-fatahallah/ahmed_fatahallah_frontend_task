@@ -15,7 +15,7 @@ interface InputFieldProps extends ComponentPropsWithRef<"input"> {
 
 const inputVariantStylesMapper: VariantStyleMappers = {
   login: "w-[545px] py-3 px-4 border-[1px] border-dark-gray rounded-[10px]",
-  profile: "font-light text-dark-blue-1 mb-[10px]",
+  profile: "font-light text-dark-blue-1 mb-[10px] disabled:bg-white",
 } as const;
 
 const wrapperVariantStyleMapper: VariantStyleMappers = {

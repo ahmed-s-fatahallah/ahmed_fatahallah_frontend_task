@@ -1,7 +1,7 @@
 import { lexend } from "@/Utils/fonts";
-import SideBar from "@/app/(userPages)/employees/profile/SideBar";
+import SideBar from "@/app/(userPages)/SideBar";
 import { ReactNode } from "react";
-import Header from "./employees/profile/Header";
+import Header from "./Header";
 
 export default function layout({
   children,

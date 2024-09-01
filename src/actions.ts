@@ -1,3 +1,7 @@
+"use server";
+
+import { cookies } from "next/headers";
+import { redirect, RedirectType } from "next/navigation";
 import { z } from "zod";
 
 const loginSchema = z.object({
@@ -37,11 +41,12 @@ export const login = async (prevState: any, formData: FormData) => {
 
     if (!res.ok) throw new Error(data.detail);
 
-    return data;
+    cookies().set("refresh", data.refresh);
+    cookies().set("access", data.access);
   } catch (err) {
     if (err instanceof Error) {
       return { message: err.message };
     }
-    return err;
   }
+  redirect("/employees/profile", RedirectType.replace);
 };
