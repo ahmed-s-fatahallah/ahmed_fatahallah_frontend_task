@@ -8,7 +8,8 @@ import FilesIcon from "@/assets/images/file 01.svg";
 import WalletIcon from "@/assets/images/icon _wallet.svg";
 import UserIcon from "@/assets/images/user.svg";
 import ChevronIcon from "@/assets/images/Vector.svg";
-import Link from "next/link";
+import Button from "@/Components/Button";
+import StyledLink from "@/Components/StyledLink";
 
 export default function SideBar() {
   return (
@@ -19,68 +20,56 @@ export default function SideBar() {
         </header>
         <ul className="ms-20">
           <li className="mb-12 pe-[30px]">
-            <Link href="#" className="flex gap-5 items-center w-full">
+            <StyledLink variant="main-sidebar" href="#">
               <DashboardIcon />
               <span>Dashboard</span>
-            </Link>
+            </StyledLink>
           </li>
           <li className="mb-12 pe-[30px]">
-            <button
-              type="button"
-              className="flex gap-5 mb-9 items-center w-full"
-            >
+            <Button variant="sidebar" type="button" className="mb-7">
               <EmployeesIcon />
               <span>Employees</span>
               <ChevronIcon className="rotate-90 ms-auto" />
-            </button>
+            </Button>
             <ul className="ms-12">
               <li>
-                <Link
-                  href="#"
-                  className="flex gap-[10px] mb-5 font-light items-center w-full"
-                >
+                <StyledLink variant="sub-sidebar" href="#">
                   <UserIcon />
                   <span>Profile</span>
-                </Link>
+                </StyledLink>
               </li>
               <li>
-                <Link
-                  href="#"
-                  className="flex gap-[10px] mb-5 font-light items-center w-full"
-                >
+                <StyledLink variant="sub-sidebar" href="#">
                   <CalenderIcon />
                   <span>Attendance</span>
-                </Link>
+                </StyledLink>
               </li>
               <li>
-                <Link
-                  href="#"
-                  className="flex gap-[10px] mb-5 font-light items-center w-full"
-                >
+                <StyledLink variant="sub-sidebar" href="#">
                   <FilesIcon />
                   <span>Tasks</span>
-                </Link>
+                </StyledLink>
               </li>
             </ul>
           </li>
           <li className="mb-12 pe-[30px]">
-            <Link href="#" className="flex gap-5 items-center w-full">
+            <StyledLink variant="main-sidebar" href="#">
               <CoinDollarIcon />
               <span>Payroll</span>
-            </Link>
+            </StyledLink>
           </li>
           <li className="mb-12 pe-[30px]">
-            <button type="button" className="flex gap-5 items-center w-full">
+            <Button variant="sidebar" type="button">
               <CarbonTaskIcon />
               <span>Holidays</span>
               <ChevronIcon className="ms-auto" />
-            </button>
+            </Button>
           </li>
           <li className="pe-[30px]">
-            <Link href="#" className="flex gap-5 items-center w-full">
+            <StyledLink variant="main-sidebar" href="#">
               <WalletIcon />
               <span>Advanced Payment</span>
-            </Link>
+            </StyledLink>
           </li>
         </ul>
       </section>

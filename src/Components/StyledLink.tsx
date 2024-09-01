@@ -2,7 +2,7 @@ import Link, { LinkProps } from "next/link";
 import { ReactNode } from "react";
 import { ClassNameValue, twMerge } from "tailwind-merge";
 
-type Variant = "sidebar";
+type Variant = "main-sidebar" | "sub-sidebar";
 
 interface StyledLinkProps extends LinkProps {
   className?: ClassNameValue;
@@ -13,7 +13,8 @@ interface StyledLinkProps extends LinkProps {
 type StyledLinkStylesMapper = Record<Variant, ClassNameValue>;
 
 const styledLinkStylesMapper: StyledLinkStylesMapper = {
-  sidebar: "flex gap-5 items-center w-full",
+  "main-sidebar": "flex gap-5 items-center w-full",
+  "sub-sidebar": "flex gap-[10px] mb-5 font-light items-center w-full",
 };
 
 export default function StyledLink({
