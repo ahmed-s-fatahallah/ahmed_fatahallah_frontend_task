@@ -27,6 +27,7 @@ export default function UserDataSection({
         name="firstName"
         defaultValue={firstName}
         wrapperClassName={isEditing ? editingStyles : ""}
+        key={isEditing}
         autoFocus={!!isEditing}
       >
         First Name
