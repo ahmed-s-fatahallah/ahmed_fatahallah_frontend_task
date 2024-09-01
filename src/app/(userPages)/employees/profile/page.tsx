@@ -19,7 +19,7 @@ export default function Profile() {
           className={`${inter.className} flex gap-[14.3px] items-center mb-[30px] font-semibold`}
         >
           <StyledLink href="#">Employees</StyledLink>
-          <ChevronIcon />
+          <ChevronIcon className="stroke-dark-gray-1" />
           <StyledLink href="#">Profile</StyledLink>
         </div>
         <div className="grid grid-cols-[repeat(2,auto)_1fr] grid-rows-[repeat(3,auto)] pb-[30px] border-b-dark-gray-3 border-b-[1px] gap-x-4 place-items-start">
@@ -52,8 +52,11 @@ export default function Profile() {
       </section>
       <section className="w-fit mt-6">
         <div className="pb-[9px] mb-[21px] flex gap-5 border-b-dark-gray-3 border-b-[1px] font-light pe-[6px]">
-          <Button variant="tab">
-            <UserIcon />
+          <Button
+            variant="tab"
+            className="text-light-red-2 font-semibold relative after:absolute after:w-full after:h-1 after:bg-light-red-2 after:-bottom-[11px]"
+          >
+            <UserIcon className="fill-light-red-2" />
             <span>Personal Information</span>
           </Button>
           <Button variant="tab">
