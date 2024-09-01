@@ -185,7 +185,7 @@ export default function Profile() {
             </InputField>
             <InputField
               variant="profile"
-              labelClassName="text-dark-red-2"
+              labelClassName="text-light-red-2"
               type="text"
               name="totalSalary"
               defaultValue="54000 EGP"
