@@ -21,6 +21,8 @@ const config: Config = {
         "dark-gray-2": "#262626",
         "dark-gray-3": "#A2A1A833",
         "dark-gray-4": "#A2A1A81A",
+        "dark-gray-5": "#A2A1A8",
+        "dark-blue-1": "#16151C",
       },
       dropShadow: {
         sm: "1px 1px 3px 0px #CACACA26",
