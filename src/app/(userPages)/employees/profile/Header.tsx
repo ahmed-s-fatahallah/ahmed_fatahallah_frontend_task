@@ -6,7 +6,7 @@ export default function Header() {
     <header className="flex justify-end gap-9 px-24 pt-[34px]">
       <button
         type="button"
-        className="w-[50px] h-[50px] flex items-center justify-center bg-[#a2a1a81a] rounded-[10px]"
+        className="w-[50px] h-[50px] flex items-center justify-center bg-dark-gray-4 rounded-[10px]"
       >
         <NotificationIcon />
       </button>

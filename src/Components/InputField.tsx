@@ -10,6 +10,7 @@ interface InputFieldProps extends ComponentPropsWithRef<"input"> {
   wrapperClassName?: ClassNameValue;
   labelClassName?: ClassNameValue;
   inputClassName?: ClassNameValue;
+  errorMsg?: string;
 }
 
 const inputVariantStylesMapper: VariantStyleMappers = {
@@ -32,6 +33,7 @@ export default function InputField({
   wrapperClassName,
   labelClassName,
   inputClassName,
+  errorMsg,
   className,
   children,
   ...rest
@@ -65,6 +67,7 @@ export default function InputField({
         }
         {...rest}
       />
+      <p className="font-semibold text-light-red-2">{errorMsg}</p>
     </div>
   );
 }
