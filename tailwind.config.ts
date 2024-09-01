@@ -16,6 +16,9 @@ const config: Config = {
       },
       colors: {
         "bright-gray": "#E9E9E9",
+        "light-red-1": "#F9EAEB",
+        "light-red-2": "#EE232F",
+        "light-red-3": "#EC232B",
         "dark-gray": "#333333",
         "dark-gray-1": "#242223",
         "dark-gray-2": "#262626",
