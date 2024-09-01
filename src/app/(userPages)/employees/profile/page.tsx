@@ -6,49 +6,9 @@ import ChevronIcon from "@/assets/images/Vector.svg";
 import Button from "@/Components/Button";
 import StyledLink from "@/Components/StyledLink";
 import { inter } from "@/Utils/fonts";
-import { cookies } from "next/headers";
-import { redirect, RedirectType } from "next/navigation";
 import UserDataSection from "./UserDataSection";
 import UserDataTopSection from "./UserDataTopSection";
-
-type UserInfo = {
-  id: number;
-  first_name?: string;
-  last_name?: string;
-  email?: string;
-  phone?: number | string;
-  bio?: string;
-  is_superuser: boolean;
-  is_staff: boolean;
-  image: string;
-  cover: string;
-  message: string;
-  status: number;
-};
-
-const getUserInfo = async () => {
-  const token = cookies().get("access");
-
-  if (!token) redirect("/login", RedirectType.replace);
-
-  try {
-    const res = await fetch(
-      "https://cyparta-backend-gf7qm.ondigitalocean.app/api/profile/",
-      { method: "GET", headers: { Authorization: `Bearer ${token.value}` } }
-    );
-
-    if (!res.ok) throw new Error("failed to fetch user data");
-
-    const data: UserInfo = await res.json();
-
-    return data;
-  } catch (err) {
-    if (err instanceof Error) {
-      console.log(err.message);
-      redirect("/login", RedirectType.replace);
-    }
-  }
-};
+import { getUserInfo } from "../../Header";
 
 export default async function Profile() {
   const userInfo = await getUserInfo();
@@ -64,11 +24,11 @@ export default async function Profile() {
           <StyledLink href="#">Profile</StyledLink>
         </div>
         <UserDataTopSection
-          cover={userInfo?.cover || ""}
-          firstName={userInfo?.first_name}
-          lastName={userInfo?.last_name}
-          bio={userInfo?.bio || "N/A"}
-          email={userInfo?.email || "N/A"}
+          cover={userInfo.cover || ""}
+          firstName={userInfo.first_name}
+          lastName={userInfo.last_name}
+          bio={userInfo.bio || "N/A"}
+          email={userInfo.email || "N/A"}
         />
       </section>
       <section className="w-fit mt-6">
@@ -94,10 +54,10 @@ export default async function Profile() {
           </Button>
         </div>
         <UserDataSection
-          firstName={userInfo?.first_name || "N/A"}
-          lastName={userInfo?.last_name || "N/A"}
-          phone={userInfo?.phone || "N/A"}
-          email={userInfo?.email || "N/A"}
+          firstName={userInfo.first_name || "N/A"}
+          lastName={userInfo.last_name || "N/A"}
+          phone={userInfo.phone || "N/A"}
+          email={userInfo.email || "N/A"}
         />
       </section>
     </section>
