@@ -1,12 +1,12 @@
 import { ComponentPropsWithRef } from "react";
-import { twMerge } from "tailwind-merge";
+import { ClassNameValue, twMerge } from "tailwind-merge";
 
-type Variants = ["login", "edit"];
+type Variant = "login" | "edit";
 
-type ButtonStylesMapper = Record<Variants[number], string>;
+type ButtonStylesMapper = Record<Variant, ClassNameValue>;
 
 interface Button extends ComponentPropsWithRef<"button"> {
-  variant?: Variants[number];
+  variant?: Variant;
 }
 
 const buttonStylesMapper: ButtonStylesMapper = {

@@ -1,12 +1,12 @@
 import { ComponentPropsWithRef, useId } from "react";
 import { ClassNameValue, twMerge } from "tailwind-merge";
 
-type Variant = ["login", "profile"];
+type Variant = "login" | "profile";
 
-type VariantStyleMappers = Record<Variant[number], string>;
+type VariantStyleMappers = Record<Variant, ClassNameValue>;
 
 interface InputFieldProps extends ComponentPropsWithRef<"input"> {
-  variant?: Variant[number];
+  variant?: Variant;
   wrapperClassName?: ClassNameValue;
   labelClassName?: ClassNameValue;
   inputClassName?: ClassNameValue;
