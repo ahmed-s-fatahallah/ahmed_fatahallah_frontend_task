@@ -1,12 +1,13 @@
-import CypartaIcon from "@/assets/images/cypartal_logo.svg";
 import DashboardIcon from "@/assets/images/akar-icons_dashboard.svg";
+import CalenderIcon from "@/assets/images/calendar-check.svg";
 import CarbonTaskIcon from "@/assets/images/carbon_task.svg";
 import EmployeesIcon from "@/assets/images/clarity_employee-group-line.svg";
 import CoinDollarIcon from "@/assets/images/coin-dollar.svg";
-import WalletIcon from "@/assets/images/icon _wallet.svg";
+import CypartaIcon from "@/assets/images/cypartal_logo.svg";
 import FilesIcon from "@/assets/images/file 01.svg";
+import WalletIcon from "@/assets/images/icon _wallet.svg";
 import UserIcon from "@/assets/images/user.svg";
-import CalenderIcon from "@/assets/images/calendar-check.svg";
+import ChevronIcon from "@/assets/images/Vector.svg";
 import Link from "next/link";
 
 export default function SideBar() {
@@ -30,7 +31,7 @@ export default function SideBar() {
             >
               <EmployeesIcon />
               <span>Employees</span>
-              <span className="chevron right ms-auto rotate-90"></span>
+              <ChevronIcon className="rotate-90 ms-auto" />
             </button>
             <ul className="ms-12">
               <li>
@@ -72,7 +73,7 @@ export default function SideBar() {
             <button type="button" className="flex gap-5 items-center w-full">
               <CarbonTaskIcon />
               <span>Holidays</span>
-              <span className="chevron right ms-auto"></span>
+              <ChevronIcon className="ms-auto" />
             </button>
           </li>
           <li className="pe-[30px]">

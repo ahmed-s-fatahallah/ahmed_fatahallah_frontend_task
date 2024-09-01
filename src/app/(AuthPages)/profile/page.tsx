@@ -1,12 +1,13 @@
+import CaseIcon from "@/assets/images/briefcase 04.svg";
+import DocIcon from "@/assets/images/document-text.svg";
+import EditIcon from "@/assets/images/edit.svg";
+import EnvlopeIcon from "@/assets/images/gmail.svg";
+import LockIcon from "@/assets/images/lock.svg";
+import UserIcon from "@/assets/images/user.svg";
+import ChevronIcon from "@/assets/images/Vector.svg";
 import { inter } from "@/Utils/fonts";
 import Image from "next/image";
 import Link from "next/link";
-import EditIcon from "@/assets/images/edit.svg";
-import CaseIcon from "@/assets/images/briefcase 04.svg";
-import EnvlopeIcon from "@/assets/images/gmail.svg";
-import LockIcon from "@/assets/images/lock.svg";
-import DocIcon from "@/assets/images/document-text.svg";
-import UserIcon from "@/assets/images/user.svg";
 
 export default function Profile() {
   return (
@@ -16,7 +17,7 @@ export default function Profile() {
           className={`${inter.className} flex gap-[14.3px] items-center mb-[30px] font-semibold`}
         >
           <Link href="#">Employees</Link>
-          <span className="chevron right"></span>
+          <ChevronIcon />
           <Link href="#">Profile</Link>
         </div>
         <div className="grid grid-cols-[repeat(2,auto)_1fr] grid-rows-[repeat(3,auto)] pb-[30px] border-b-dark-gray-3 border-b-[1px] gap-x-4 place-items-start">
