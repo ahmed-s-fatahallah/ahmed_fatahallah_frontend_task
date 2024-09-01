@@ -1,4 +1,4 @@
-import NotificationIcon from "@/assets/images/notification.svg";
+import NotificationIcon from "@/assets/images/Notification.svg";
 import Image from "next/image";
 
 export default function Header() {
