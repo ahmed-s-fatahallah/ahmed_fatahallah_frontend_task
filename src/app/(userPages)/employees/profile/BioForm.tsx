@@ -35,7 +35,8 @@ export default function BioForm({ bio }: Pick<UserInfo, "bio">) {
       className="col-start-2 col-span-1 row-start-2 flex justify-between items-center"
       noValidate
       onSubmit={(ev) => {
-        ev.currentTarget.submit();
+        ev.currentTarget.requestSubmit();
+        setIsEditing(false);
       }}
     >
       <InputField
