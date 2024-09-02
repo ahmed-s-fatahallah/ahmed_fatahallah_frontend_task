@@ -13,14 +13,14 @@ interface InputFieldProps extends ComponentPropsWithRef<"input"> {
   errorMsg?: string;
 }
 
-const inputVariantStylesMapper: VariantStyleMappers = {
-  login: "w-[545px] py-3 px-4 border-[1px] border-dark-gray rounded-[10px]",
-  profile: "font-light text-dark-blue-1 mb-[10px] disabled:bg-white",
-} as const;
-
 const wrapperVariantStyleMapper: VariantStyleMappers = {
   login: "mb-5",
   profile: "border-dark-gray-4 border-b-[1px]",
+} as const;
+
+const inputVariantStylesMapper: VariantStyleMappers = {
+  login: "w-[545px] py-3 px-4 border-[1px] border-dark-gray rounded-[10px]",
+  profile: "font-light text-dark-blue-1 mb-[10px] disabled:bg-white outline-0",
 } as const;
 
 const labelVariantStyleMapper: VariantStyleMappers = {
