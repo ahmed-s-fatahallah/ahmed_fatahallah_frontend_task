@@ -13,7 +13,8 @@ interface StyledLinkProps extends LinkProps {
 type StyledLinkStylesMapper = Record<Variant, ClassNameValue>;
 
 const styledLinkStylesMapper: StyledLinkStylesMapper = {
-  "main-sidebar": "flex gap-5 items-center w-full",
+  "main-sidebar":
+    "flex gap-5 items-center w-full ps-20 py-[14px] pe-[30px] rounded-r-full relative",
   "sub-sidebar": "flex gap-[10px] mb-5 font-light items-center w-full",
 } as const;
 

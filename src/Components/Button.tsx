@@ -13,7 +13,8 @@ const buttonStylesMapper: ButtonStylesMapper = {
   login:
     "mb-[62px] w-[445px] h-14 bg-dark-gray-2 text-white rounded-[10px] block mx-auto",
   edit: "px-5 py-[13px] me-[86px] bg-dark-gray-1 rounded-[10px] text-white font-light flex items-center gap-[10px]",
-  sidebar: "flex gap-5 items-center w-full",
+  sidebar:
+    "flex gap-5 items-center w-full py-[10px] pe-[30px] ps-20 rounded-r-full relative",
   tab: "flex gap-[10px]",
 } as const;
 
@@ -25,7 +26,13 @@ export default function Button({
 }: Button) {
   return (
     <button
-      className={variant ? twMerge(buttonStylesMapper[variant], className) : ""}
+      className={
+        variant
+          ? twMerge(buttonStylesMapper[variant], className)
+          : className
+          ? className
+          : ""
+      }
       {...rest}
     >
       {children}

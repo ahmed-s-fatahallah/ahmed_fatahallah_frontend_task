@@ -18,18 +18,18 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
 export default function SideBar() {
-  const [selectedTab, setSelectedTab] = useState("employee");
+  const [currentActiveMenu, setCurrentActiveMenu] = useState("employee");
 
   const pathname = usePathname();
 
   useEffect(() => {
-    if (!pathname.match(/employees|holidays/)) setSelectedTab("");
+    if (!pathname.match(/employees|holidays/)) setCurrentActiveMenu("");
   }, [pathname]);
 
-  const activeLinkBgStyles = (route: string) =>
+  const activateLinkBgStyles = (route: string) =>
     isActive(pathname, route)
-      ? "rounded-r-full bg-light-red-1 text-light-red-2"
-      : "";
+      ? "bg-light-red-1 text-light-red-2 before:w-[5px] before:rounded-full before:h-full before:absolute before:bg-light-red-3 before:left-0"
+      : "hover:bg-light-gray";
 
   return (
     <aside className="py-10 px-7 min-h-dvh mt-[-94px]">
@@ -44,9 +44,7 @@ export default function SideBar() {
             <StyledLink
               variant="main-sidebar"
               href="/dashboard"
-              className={`ps-20 py-[14px] pe-[30px] ${activeLinkBgStyles(
-                "/dashboard"
-              )}`}
+              className={activateLinkBgStyles("/dashboard")}
             >
               <DashboardIcon
                 className={
@@ -62,14 +60,12 @@ export default function SideBar() {
             <Button
               variant="sidebar"
               type="button"
-              className={`py-[10px] pe-[30px] ps-20 ${activeLinkBgStyles(
-                "/employees"
-              )}`}
+              className={activateLinkBgStyles("/employees")}
               onClick={() => {
-                if (selectedTab === "employee") {
-                  setSelectedTab("");
+                if (currentActiveMenu === "employee") {
+                  setCurrentActiveMenu("");
                 } else {
-                  setSelectedTab("employee");
+                  setCurrentActiveMenu("employee");
                 }
               }}
             >
@@ -83,7 +79,7 @@ export default function SideBar() {
               <span>Employees</span>
               <ChevronIcon
                 className={`ms-auto transition-all ${
-                  selectedTab === "employee" ? "rotate-90" : ""
+                  currentActiveMenu === "employee" ? "rotate-90" : ""
                 } ${
                   isActive(pathname, "employees")
                     ? "stroke-light-red-2"
@@ -93,7 +89,7 @@ export default function SideBar() {
             </Button>
             <div
               className={`grid transition-all ms-[130px] ${
-                selectedTab === "employee"
+                currentActiveMenu === "employee"
                   ? "grid-rows-[1fr]"
                   : "grid-rows-[0fr]"
               }`}
@@ -101,7 +97,9 @@ export default function SideBar() {
               <ul className="overflow-hidden">
                 <li
                   className={`mt-7 ${
-                    isActive(pathname, "profile") ? "text-light-gray-1" : ""
+                    isActive(pathname, "profile")
+                      ? "text-light-gray-1"
+                      : "hover:text-light-red-2"
                   }`}
                 >
                   <StyledLink variant="sub-sidebar" href="/employees/profile">
@@ -119,7 +117,7 @@ export default function SideBar() {
                   className={
                     isActive(pathname, "/employees/attendance")
                       ? "text-light-gray-1"
-                      : ""
+                      : "hover:text-light-red-2"
                   }
                 >
                   <StyledLink
@@ -140,7 +138,7 @@ export default function SideBar() {
                   className={
                     isActive(pathname, "/employees/tasks")
                       ? "text-light-gray-1"
-                      : ""
+                      : "hover:text-light-red-2"
                   }
                 >
                   <StyledLink variant="sub-sidebar" href="/employees/tasks">
@@ -161,7 +159,7 @@ export default function SideBar() {
             <StyledLink
               variant="main-sidebar"
               href="/payroll"
-              className={`py-[14px] ps-20 ${activeLinkBgStyles("/payroll")}`}
+              className={activateLinkBgStyles("/payroll")}
             >
               <CoinDollarIcon
                 className={
@@ -178,15 +176,13 @@ export default function SideBar() {
               variant="sidebar"
               type="button"
               onClick={() => {
-                if (selectedTab === "holidays") {
-                  setSelectedTab("");
+                if (currentActiveMenu === "holidays") {
+                  setCurrentActiveMenu("");
                 } else {
-                  setSelectedTab("holidays");
+                  setCurrentActiveMenu("holidays");
                 }
               }}
-              className={`py-[14px] pe-[30px] ps-20 ${activeLinkBgStyles(
-                "/holidays"
-              )}`}
+              className={activateLinkBgStyles("/holidays")}
             >
               <CarbonTaskIcon
                 className={
@@ -198,7 +194,7 @@ export default function SideBar() {
               <span>Holidays</span>
               <ChevronIcon
                 className={`ms-auto transition-all ${
-                  selectedTab === "holidays" ? "rotate-90" : ""
+                  currentActiveMenu === "holidays" ? "rotate-90" : ""
                 } ${
                   isActive(pathname, "holidays")
                     ? "stroke-light-red-2"
@@ -208,7 +204,7 @@ export default function SideBar() {
             </Button>
             <div
               className={`grid transition-all ms-[130px] ${
-                selectedTab === "holidays"
+                currentActiveMenu === "holidays"
                   ? "grid-rows-[1fr]"
                   : "grid-rows-[0fr]"
               }`}
@@ -216,7 +212,9 @@ export default function SideBar() {
               <ul className="overflow-hidden">
                 <li
                   className={`mt-7 ${
-                    isActive(pathname, "holidays") ? "text-light-gray-1" : ""
+                    isActive(pathname, "holidays")
+                      ? "text-light-gray-1"
+                      : "hover:text-light-red-2"
                   }`}
                 >
                   <StyledLink variant="sub-sidebar" href="/holidays/holyday">
@@ -237,9 +235,7 @@ export default function SideBar() {
             <StyledLink
               variant="main-sidebar"
               href="/advanced_payment"
-              className={`py-[14px] ps-20 ${activeLinkBgStyles(
-                "/advanced_payment"
-              )}`}
+              className={activateLinkBgStyles("/advanced_payment")}
             >
               <WalletIcon
                 className={
