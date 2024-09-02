@@ -45,13 +45,16 @@ export default function BioForm({ bio }: Pick<UserInfo, "bio">) {
         name="bio"
         value={bioInputValue}
         wrapperClassName="font-light flex items-center gap-[10px]"
+        key={isEditing.toString()}
         inputClassName={`outline-0 border-b-2 ${
           isEditing ? editingStyles : "pointer-events-none border-white"
         }`}
         onChange={(e) => {
           setBioInputValue(e.target.value);
         }}
-        key={isEditing.toString()}
+        onKeyDown={(ev) => {
+          if (!isEditing && ev.key !== "Tab") ev.preventDefault();
+        }}
         errorMsg={
           state && "bio" in state && Array.isArray(state.bio)
             ? state.bio?.[0]
