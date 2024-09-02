@@ -4,6 +4,11 @@ import Button from "@/Components/Button";
 import HamburgerBtn from "@/Components/HamburgerBtn";
 import UserMenu from "./UserMenu";
 
+/**
+ * A React component that renders the application header with a hamburger button, notification icon, and user menu.
+ *
+ * @return {JSX.Element} The JSX element representing the application header.
+ */
 export default async function Header() {
   const userInfo = await getUserInfo();
 

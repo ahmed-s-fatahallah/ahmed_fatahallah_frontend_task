@@ -20,6 +20,16 @@ const buttonStylesMapper: ButtonStylesMapper = {
     "px-5 py-[13px] rounded-[10px] bg-dark-gray-4 hover:text-white hover:bg-dark-gray",
 } as const;
 
+/**
+ * A reusable generic dummy button component that extends the native button element.
+ *
+ * @param {Object} props - The properties for the button component.
+ * @param {string} props.variant - The variant of the button. Can be one of: "login", "edit", "sidebar", "tab", "cancel" depending on the variant the styles are applied.
+ * @param {ReactNode} props.children - The content to be rendered inside the button.
+ * @param {string} props.className - Additional CSS class names for the button.
+ * @param {Object} props.rest - Additional props to be spread onto the button element.
+ * @return {JSX.Element} The rendered button component.
+ */
 export default function Button({
   variant,
   children,

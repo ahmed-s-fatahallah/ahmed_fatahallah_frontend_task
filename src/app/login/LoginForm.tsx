@@ -5,6 +5,11 @@ import InputField from "@/Components/InputField";
 import { useFormState } from "react-dom";
 import SubmitButton from "./SubmitButton";
 
+/**
+ * A login form component that handles user input and submission.
+ *
+ * @return {JSX.Element} The JSX element representing the login form.
+ */
 export default function LoginForm() {
   const initialState = {
     message: "",

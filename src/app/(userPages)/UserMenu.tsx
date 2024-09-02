@@ -5,6 +5,12 @@ import Button from "@/Components/Button";
 import Image from "next/image";
 import { useState } from "react";
 
+/**
+ * A React component that displays a user menu with a profile image and a logout button.
+ *
+ * @param {string} imgSrc - The URL of the user's profile image.
+ * @return {JSX.Element} The JSX element representing the user menu.
+ */
 export default function UserMenu({ imgSrc }: { imgSrc: string }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 

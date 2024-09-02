@@ -10,6 +10,12 @@ const nextConfig = {
       },
     ],
   },
+  /**
+   * Modifies the webpack configuration to support SVG files as react component.
+   *
+   * @param {object} config - The webpack configuration object.
+   * @return {object} The modified webpack configuration object.
+   */
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/i,

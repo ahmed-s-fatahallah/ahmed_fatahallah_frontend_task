@@ -3,6 +3,12 @@ import CypartaIcon from "@/assets/images/cypartal_logo.svg";
 import Button from "@/Components/Button";
 import { useRouter } from "next/navigation";
 
+/**
+ * The Home component is the main entry point of the application.
+ * It renders a welcome message and a button to navigate to the login page.
+ *
+ * @return {JSX.Element} The JSX element representing the Home component
+ */
 export default function Home() {
   const router = useRouter();
   return (

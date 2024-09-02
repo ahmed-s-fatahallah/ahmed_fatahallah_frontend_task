@@ -2,6 +2,11 @@
 
 import { usePathname, useSearchParams } from "next/navigation";
 
+/**
+ * A React component that renders a hamburger button to toggle the side menu.
+ * the state of the sideBar on small screens is saved in the url
+ * @return {JSX.Element} The JSX element representing the hamburger button.
+ */
 export default function HamburgerBtn() {
   const pathname = usePathname();
   const searchParams = useSearchParams();

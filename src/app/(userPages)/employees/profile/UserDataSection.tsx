@@ -8,6 +8,16 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useFormState } from "react-dom";
 
+/**
+ * A form component for editing user data.
+ *
+ * @param {UserBaseData} first_name - The user's first name.
+ * @param {UserBaseData} last_name - The user's last name.
+ * @param {UserBaseData} phone - The user's phone number.
+ * @param {UserBaseData} email - The user's email address.
+ * @param {UserBaseData} bio - The user's bio information.
+ * @return {JSX.Element} A JSX element representing the user data form.
+ */
 export default function UserDataSection({
   first_name,
   last_name,
@@ -56,6 +66,9 @@ export default function UserDataSection({
       action={editAction}
       noValidate
     >
+      {/* disabled attribute is not directly used because it is bad for accessibility because the screen readers will lose focus if the input is disabled and they can't target it anymore
+      so we use the aria-disabled attribute and handle the disable behavior with js and css
+       */}
       <InputField
         aria-disabled={!isEditing}
         variant="profile"
@@ -68,6 +81,7 @@ export default function UserDataSection({
             ? state.first_name?.[0]
             : ""
         }
+        // use the key prop to force the component to re-render when the isEditing state changes to gain focus
         key={isEditing.toString()}
         onChange={(e) => {
           setInputValues((prev) => ({

@@ -8,6 +8,17 @@ import Image from "next/image";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import BioForm from "./BioForm";
 
+/**
+ * A React component that displays a user's top section profile data and has the bioForm Component.
+ *
+ * @param {UserBaseData & Pick<UserInfo, "image">} props - The component props.
+ * @param {string} props.first_name - The user's first name.
+ * @param {string} props.last_name - The user's last name.
+ * @param {string} props.image - The user's profile image URL.
+ * @param {string} props.bio - The user's bio.
+ * @param {string} props.email - The user's email address.
+ * @return {JSX.Element} The JSX element representing the user's top section profile data.
+ */
 export default function UserDataTopSection({
   first_name,
   last_name,

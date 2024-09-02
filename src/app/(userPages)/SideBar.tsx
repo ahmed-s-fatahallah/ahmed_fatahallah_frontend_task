@@ -17,6 +17,13 @@ import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
+/**
+ * A functional component representing the application's sidebar.
+ * It handles the state of the currently active menu and the side menu's open state.
+ * It also renders the sidebar's content, including links to different routes.
+ *
+ * @return {JSX.Element} The JSX element representing the sidebar.
+ */
 export default function SideBar() {
   const [currentActiveMenu, setCurrentActiveMenu] = useState("employee");
   const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
@@ -35,6 +42,12 @@ export default function SideBar() {
     }
   }, [searchParams]);
 
+  /**
+   * Returns the CSS classes for activating the background styles of a link based on the route.
+   *
+   * @param {string} route - The route to check for activation.
+   * @return {string} The CSS classes for the link's background styles.
+   */
   const activateLinkBgStyles = (route: string) =>
     isActive(pathname, route)
       ? "bg-light-red-1 text-light-red-2 before:w-[5px] before:rounded-full before:h-full before:absolute before:bg-light-red-3 before:left-0"

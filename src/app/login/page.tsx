@@ -1,9 +1,14 @@
 import CypartaIcon from "@/assets/images/cypartal_logo.svg";
-import Link from "next/link";
-import LoginForm from "./LoginForm";
 import { cookies } from "next/headers";
+import Link from "next/link";
 import { redirect, RedirectType } from "next/navigation";
+import LoginForm from "./LoginForm";
 
+/**
+ * Login page component. Handles the login page functionality, checking for an existing access token and redirecting to the employee profile page if found.
+ *
+ * @return {JSX.Element} The JSX element representing the login page.
+ */
 export default function Login() {
   const token = cookies().has("access");
 

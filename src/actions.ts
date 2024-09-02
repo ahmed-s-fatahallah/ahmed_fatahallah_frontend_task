@@ -6,6 +6,7 @@ import { cookies } from "next/headers";
 import { redirect, RedirectType } from "next/navigation";
 import { z } from "zod";
 
+// zod login validation schema
 const loginSchema = z.object({
   email: z.string().email("Invalid Email Address"),
   password: z
@@ -14,6 +15,7 @@ const loginSchema = z.object({
     .max(12, "Password must be not more than 12 characters"),
 });
 
+// zod editUserData validation schema
 const editUserDataSchema = z.object({
   first_name: z
     .string()
@@ -29,6 +31,15 @@ const editUserDataSchema = z.object({
   bio: z.string().nullable(),
 });
 
+/**
+ * Handles the login functionality by validating the provided form data against the login schema,
+ * sending a POST request to the login API endpoint, and setting the refresh and access cookies upon successful login.
+ *
+ * @param {any} prevState - The previous state of the application.
+ * @param {FormData} formData - The form data containing the email and password.
+ * @return {Object|string} An object containing the field errors if the form data is invalid,
+ * or a string containing the error message if the login API request fails.
+ */
 export const login = async (prevState: any, formData: FormData) => {
   const result = loginSchema.safeParse({
     email: formData.get("email"),
@@ -68,6 +79,11 @@ export const login = async (prevState: any, formData: FormData) => {
   redirect("/employees/profile", RedirectType.replace);
 };
 
+/**
+ * Retrieves the user's information from the API endpoint.
+ *
+ * @return {UserInfo} The user's information.
+ */
 export const getUserInfo = async () => {
   const token = cookies().get("access");
 
@@ -85,6 +101,13 @@ export const getUserInfo = async () => {
   return data;
 };
 
+/**
+ * Updates the user's information by sending a PATCH request to the API endpoint.
+ *
+ * @param {UserBaseData} prevState - The user's previous state.
+ * @param {FormData} formData - The form data containing the updated user information.
+ * @return {object} The updated user data or an error object if the request fails.
+ */
 export const editUser = async (prevState: UserBaseData, formData: FormData) => {
   const token = cookies().get("access");
 
@@ -138,6 +161,11 @@ export const editUser = async (prevState: UserBaseData, formData: FormData) => {
   }
 };
 
+/**
+ * Logs out the user by deleting the access token cookie and redirecting to the login page.
+ *
+ * @return {Promise<void>} A Promise that resolves when the logout process is complete.
+ */
 export const logout = async () => {
   cookies().delete("access");
   redirect("/login", RedirectType.replace);

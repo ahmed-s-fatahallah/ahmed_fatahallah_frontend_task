@@ -10,6 +10,12 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useFormState } from "react-dom";
 
+/**
+ * A form component for editing user bio information in the bio field because the bio field is outside the user data fields.
+ *
+ * @param {Pick<UserInfo, "bio">} bio - The user's bio information.
+ * @return {JSX.Element} A JSX element representing the bio form.
+ */
 export default function BioForm({ bio }: Pick<UserInfo, "bio">) {
   const [bioInputValue, setBioInputValue] = useState(bio);
   const [isEditing, setIsEditing] = useState(false);

@@ -18,6 +18,16 @@ const styledLinkStylesMapper: StyledLinkStylesMapper = {
   "sub-sidebar": "flex gap-[10px] mb-5 font-light items-center w-full",
 } as const;
 
+/**
+ * A reusable generic dummy link component that accepts variant and className props and depending on the variant the styles are applied.
+ *
+ * @param {StyledLinkProps} props - The props for the StyledLink component.
+ * @param {Variant} props.variant - The variant of the styled link.
+ * @param {ClassNameValue} props.className - The additional class name for the styled link.
+ * @param {ReactNode} props.children - The children of the styled link.
+ * @param {LinkProps} props.rest - The rest of the props for the Link component.
+ * @return {JSX.Element} The styled link element.
+ */
 export default function StyledLink({
   variant,
   className,

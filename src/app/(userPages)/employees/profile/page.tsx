@@ -7,6 +7,11 @@ import UserDataSection from "./UserDataSection";
 import UserDataTopSection from "./UserDataTopSection";
 
 export default async function Profile() {
+  /**
+   * A the profile page component. Handles the user's profile page functionality.
+   *
+   * @return {JSX.Element} The JSX element representing the user's profile page.
+   */
   const userInfo = await getUserInfo();
 
   return (
