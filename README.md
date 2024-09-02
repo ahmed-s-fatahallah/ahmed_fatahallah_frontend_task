@@ -34,72 +34,71 @@
 
 ## folder structure
 
-📦src
-┣ 📂Components
-┃ ┣ 📜Button.tsx
-┃ ┣ 📜HamburgerBtn.tsx
-┃ ┣ 📜InputField.tsx
-┃ ┣ 📜ProfileDataField.tsx
-┃ ┗ 📜StyledLink.tsx
-┣ 📂Utils
-┃ ┣ 📜Network.ts
-┃ ┣ 📜fonts.ts
-┃ ┗ 📜utils.ts
-┣ 📂app
-┃ ┣ 📂(userPages)
-┃ ┃ ┣ 📂advanced_payment
-┃ ┃ ┃ ┗ 📜page.tsx
-┃ ┃ ┣ 📂dashboard
-┃ ┃ ┃ ┗ 📜page.tsx
-┃ ┃ ┣ 📂employees
-┃ ┃ ┃ ┣ 📂attendance
-┃ ┃ ┃ ┃ ┗ 📜page.tsx
-┃ ┃ ┃ ┣ 📂profile
-┃ ┃ ┃ ┃ ┣ 📜BioForm.tsx
-┃ ┃ ┃ ┃ ┣ 📜TabsContainer.tsx
-┃ ┃ ┃ ┃ ┣ 📜UserDataSection.tsx
-┃ ┃ ┃ ┃ ┣ 📜UserDataTopSection.tsx
-┃ ┃ ┃ ┃ ┗ 📜page.tsx
-┃ ┃ ┃ ┗ 📂tasks
-┃ ┃ ┃ ┃ ┗ 📜page.tsx
-┃ ┃ ┣ 📂holidays
-┃ ┃ ┃ ┗ 📂holyday
-┃ ┃ ┃ ┃ ┗ 📜page.tsx
-┃ ┃ ┣ 📂payroll
-┃ ┃ ┃ ┗ 📜page.tsx
-┃ ┃ ┣ 📜Header.tsx
-┃ ┃ ┣ 📜SideBar.tsx
-┃ ┃ ┣ 📜UserMenu.tsx
-┃ ┃ ┣ 📜error.tsx
-┃ ┃ ┗ 📜layout.tsx
-┃ ┣ 📂login
-┃ ┃ ┣ 📜LoginForm.tsx
-┃ ┃ ┣ 📜SubmitButton.tsx
-┃ ┃ ┗ 📜page.tsx
-┃ ┣ 📜HomeBtn.tsx
-┃ ┣ 📜globals.css
-┃ ┣ 📜layout.tsx
-┃ ┗ 📜page.tsx
-┣ 📂assets
-┃ ┣ 📂images
-┃ ┃ ┣ 📜.DS_Store
-┃ ┃ ┣ 📜Vector.svg
-┃ ┃ ┣ 📜akar-icons_dashboard.svg
-┃ ┃ ┣ 📜briefcase 04.svg
-┃ ┃ ┣ 📜calendar-check.svg
-┃ ┃ ┣ 📜carbon_task.svg
-┃ ┃ ┣ 📜clarity_employee-group-line.svg
-┃ ┃ ┣ 📜coin-dollar.svg
-┃ ┃ ┣ 📜cypartal_logo.svg
-┃ ┃ ┣ 📜document-text.svg
-┃ ┃ ┣ 📜edit.svg
-┃ ┃ ┣ 📜file 01.svg
-┃ ┃ ┣ 📜gmail.svg
-┃ ┃ ┣ 📜icon \_wallet.svg
-┃ ┃ ┣ 📜lock.svg
-┃ ┃ ┣ 📜notificationIcon.svg
-┃ ┃ ┗ 📜user.svg
-┃ ┗ 📜.DS_Store
-┣ 📜.DS_Store
-┣ 📜actions.ts
-┗ 📜types.ts
+```
+└── 📁src
+    └── 📁app
+        └── 📁(userPages)
+            └── 📁advanced_payment
+                └── page.tsx
+            └── 📁dashboard
+                └── page.tsx
+            └── 📁employees
+                └── 📁attendance
+                    └── page.tsx
+                └── 📁profile
+                    └── BioForm.tsx
+                    └── page.tsx
+                    └── TabsContainer.tsx
+                    └── UserDataSection.tsx
+                    └── UserDataTopSection.tsx
+                └── 📁tasks
+                    └── page.tsx
+            └── 📁holidays
+                └── 📁holyday
+                    └── page.tsx
+            └── 📁payroll
+                └── page.tsx
+            └── error.tsx
+            └── Header.tsx
+            └── layout.tsx
+            └── SideBar.tsx
+            └── UserMenu.tsx
+        └── 📁login
+            └── LoginForm.tsx
+            └── page.tsx
+            └── SubmitButton.tsx
+        └── globals.css
+        └── HomeBtn.tsx
+        └── layout.tsx
+        └── page.tsx
+    └── 📁assets
+        └── 📁images
+            └── akar-icons_dashboard.svg
+            └── briefcase 04.svg
+            └── calendar-check.svg
+            └── carbon_task.svg
+            └── clarity_employee-group-line.svg
+            └── coin-dollar.svg
+            └── cypartal_logo.svg
+            └── document-text.svg
+            └── edit.svg
+            └── file 01.svg
+            └── gmail.svg
+            └── icon _wallet.svg
+            └── lock.svg
+            └── notificationIcon.svg
+            └── user.svg
+            └── Vector.svg
+    └── 📁Components
+        └── Button.tsx
+        └── HamburgerBtn.tsx
+        └── InputField.tsx
+        └── ProfileDataField.tsx
+        └── StyledLink.tsx
+    └── 📁Utils
+        └── fonts.ts
+        └── Network.ts
+        └── utils.ts
+    └── actions.ts
+    └── types.ts
+```
