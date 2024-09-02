@@ -1,15 +1,15 @@
 import { ComponentPropsWithRef, useId } from "react";
-import { ClassNameValue, twMerge } from "tailwind-merge";
+import { twMerge } from "tailwind-merge";
 
 type Variant = "login" | "profile";
 
-type VariantStyleMappers = Record<Variant, ClassNameValue>;
+type VariantStyleMappers = Record<Variant, string>;
 
 interface InputFieldProps extends ComponentPropsWithRef<"input"> {
   variant?: Variant;
-  wrapperClassName?: ClassNameValue;
-  labelClassName?: ClassNameValue;
-  inputClassName?: ClassNameValue;
+  wrapperClassName?: string;
+  labelClassName?: string;
+  inputClassName?: string;
   errorMsg?: string;
 }
 
@@ -45,6 +45,8 @@ export default function InputField({
       className={
         variant
           ? twMerge(wrapperVariantStyleMapper[variant], wrapperClassName)
+          : wrapperClassName
+          ? wrapperClassName
           : ""
       }
     >
@@ -52,6 +54,8 @@ export default function InputField({
         className={
           variant
             ? twMerge(labelVariantStyleMapper[variant], labelClassName)
+            : labelClassName
+            ? labelClassName
             : ""
         }
         htmlFor={id}
@@ -63,6 +67,8 @@ export default function InputField({
         className={
           variant
             ? twMerge(inputVariantStylesMapper[variant], inputClassName)
+            : inputClassName
+            ? inputClassName
             : ""
         }
         {...rest}
