@@ -6,12 +6,16 @@ import EditIcon from "@/assets/images/edit.svg";
 import Button from "@/Components/Button";
 import InputField from "@/Components/InputField";
 import { UserInfo } from "@/types";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useFormState } from "react-dom";
 
 export default function BioForm({ bio }: Pick<UserInfo, "bio">) {
   const [bioInputValue, setBioInputValue] = useState(bio);
   const [isEditing, setIsEditing] = useState(false);
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  const pathname = usePathname();
 
   const editingStyles =
     "border-solid border-light-red-2 border-b-2 pointer-events-auto";
@@ -19,8 +23,11 @@ export default function BioForm({ bio }: Pick<UserInfo, "bio">) {
   const [state, editAction] = useFormState(editUser, { bio });
 
   useEffect(() => {
+    if (searchParams.has("edit")) {
+      setIsEditing(false);
+    }
     if (state?.bio) setBioInputValue(state.bio);
-  }, [state]);
+  }, [state, searchParams]);
 
   return (
     <form
@@ -54,7 +61,15 @@ export default function BioForm({ bio }: Pick<UserInfo, "bio">) {
         <CaseIcon />
       </InputField>
       {!isEditing ? (
-        <Button type="button" onClick={setIsEditing.bind(null, true)}>
+        <Button
+          type="button"
+          onClick={() => {
+            setIsEditing(true);
+            if (searchParams.has("edit")) {
+              router.replace(pathname);
+            }
+          }}
+        >
           <EditIcon className="fill-black" />
         </Button>
       ) : (
