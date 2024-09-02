@@ -1,6 +1,7 @@
 "use server";
 
-import { UserInfo } from "@/types";
+import type { UserBaseData, UserInfo } from "@/types";
+import { revalidatePath } from "next/cache";
 import { cookies } from "next/headers";
 import { redirect, RedirectType } from "next/navigation";
 import { z } from "zod";
@@ -11,6 +12,18 @@ const loginSchema = z.object({
     .string()
     .min(6, "Password must be at least 6 characters")
     .max(12, "Password must be not more than 12 characters"),
+});
+
+const editUserDataSchema = z.object({
+  first_name: z.string().min(2, "Name must have min of 2 characters"),
+  last_name: z.string().min(2, "Name must have min of 2 characters"),
+  phone: z
+    .string()
+    .min(10, "Phone number must have at least 10 digits")
+    .max(14, "Phone number must have not be more than 14 digits")
+    .optional(),
+  email: z.string().email("Please enter a valid email address"),
+  bio: z.string().optional(),
 });
 
 export const login = async (prevState: any, formData: FormData) => {
@@ -25,8 +38,8 @@ export const login = async (prevState: any, formData: FormData) => {
 
   const params = new URLSearchParams();
 
-  params.append("email", formData.get("email")?.toString() || "");
-  params.append("password", formData.get("password")?.toString() || "");
+  params.append("email", result.data.email);
+  params.append("password", result.data.password);
 
   try {
     const res = await fetch(
@@ -67,6 +80,59 @@ export const getUserInfo = async () => {
   const data: UserInfo = await res.json();
 
   return data;
+};
+
+export const editUser = async (prevState: UserBaseData, formData: FormData) => {
+  const token = cookies().get("access");
+
+  if (!token) redirect("/login", RedirectType.replace);
+
+  const result = editUserDataSchema.safeParse({
+    first_name: formData.get("firstName"),
+    last_name: formData.get("lastName"),
+    phone: formData.get("mobileNumber"),
+    email: formData.get("email"),
+  });
+
+  if (!result.success) {
+    return result.error.flatten().fieldErrors;
+  }
+
+  const modifiedBody: Partial<
+    Record<keyof UserBaseData, string | number | undefined>
+  > = {};
+
+  Object.keys(prevState).forEach((key) => {
+    const typedKey = key as keyof UserBaseData;
+
+    if (prevState[typedKey] != result.data[typedKey]) {
+      modifiedBody[typedKey] = result.data[typedKey];
+    }
+  });
+
+  try {
+    const res = await fetch(
+      "https://cyparta-backend-gf7qm.ondigitalocean.app/api/profile/",
+      {
+        method: "PATCH",
+
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token.value}`,
+        },
+        body: JSON.stringify(modifiedBody),
+      }
+    );
+
+    const data = await res.json();
+
+    if (!res.ok) throw new Error("Failed to update user data");
+
+    revalidatePath("/employees/profile");
+    return data;
+  } catch (err) {
+    throw err;
+  }
 };
 
 export const logout = async () => {

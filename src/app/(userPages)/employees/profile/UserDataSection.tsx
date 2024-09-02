@@ -1,39 +1,80 @@
 "use client";
+import { editUser } from "@/actions";
 import Button from "@/Components/Button";
 import InputField from "@/Components/InputField";
 import ProfileDataField from "@/Components/ProfileDataField";
+import { UserBaseData } from "@/types";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { useEffect, useState } from "react";
+import { useFormState } from "react-dom";
 
 export default function UserDataSection({
-  firstName,
-  lastName,
+  first_name,
+  last_name,
   phone,
   email,
-}: {
-  firstName: string;
-  lastName: string;
-  phone: number | string;
-  email: string;
-}) {
+  bio,
+}: UserBaseData) {
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const router = useRouter();
 
+  const [inputValues, setInputValues] = useState({
+    firstName: first_name,
+    lastName: last_name,
+    email: email,
+    phone: phone,
+  });
+
+  const initialState: any = {
+    first_name,
+    last_name,
+    phone,
+    email,
+    bio,
+  };
+
+  const [state, editAction] = useFormState(editUser, initialState);
+
+  useEffect(() => {
+    setInputValues({
+      firstName: state?.first_name,
+      lastName: state?.last_name,
+      email: state?.email,
+      phone: state?.phone,
+    });
+  }, [state]);
+
   const isEditing = searchParams.has("edit");
+
   const editingStyles =
     "border-solid border-light-red-2 border-b-2 pointer-events-auto";
 
   return (
-    <form className="pe-[6px] grid grid-cols-2 gap-5" noValidate>
+    <form
+      className="pe-[6px] grid grid-cols-2 gap-5"
+      action={editAction}
+      noValidate
+    >
       <InputField
         aria-disabled={!isEditing}
         variant="profile"
         type="text"
         name="firstName"
-        defaultValue={firstName}
+        value={inputValues.firstName}
         wrapperClassName={isEditing ? editingStyles : "pointer-events-none"}
-        inputClassName=""
+        errorMsg={
+          state && "first_name" in state && Array.isArray(state.first_name)
+            ? state.first_name?.[0]
+            : ""
+        }
         key={isEditing.toString()}
+        onChange={(e) => {
+          setInputValues((prev) => ({
+            ...prev,
+            firstName: e.target.value,
+          }));
+        }}
         onKeyDown={(ev) => {
           if (!isEditing && ev.key !== "Tab") ev.preventDefault();
         }}
@@ -46,9 +87,19 @@ export default function UserDataSection({
         variant="profile"
         type="text"
         name="lastName"
-        defaultValue={lastName}
+        value={inputValues.lastName}
         wrapperClassName={isEditing ? editingStyles : "pointer-events-none"}
-        inputClassName=""
+        errorMsg={
+          state && "last_name" in state && Array.isArray(state.last_name)
+            ? state.last_name?.[0]
+            : ""
+        }
+        onChange={(e) => {
+          setInputValues((prev) => ({
+            ...prev,
+            lastName: e.target.value,
+          }));
+        }}
         onKeyDown={(ev) => {
           if (!isEditing && ev.key !== "Tab") ev.preventDefault();
         }}
@@ -60,9 +111,16 @@ export default function UserDataSection({
         variant="profile"
         type="tel"
         name="mobileNumber"
-        defaultValue={phone}
+        value={inputValues.phone}
         wrapperClassName={isEditing ? editingStyles : "pointer-events-none"}
-        inputClassName=""
+        errorMsg={
+          state && "phone" in state && Array.isArray(state.phone)
+            ? state.phone?.[0]
+            : ""
+        }
+        onChange={(e) => {
+          setInputValues((prev) => ({ ...prev, phone: e.target.value }));
+        }}
         onKeyDown={(ev) => {
           if (!isEditing && ev.key !== "Tab") ev.preventDefault();
         }}
@@ -74,9 +132,16 @@ export default function UserDataSection({
         variant="profile"
         type="email"
         name="email"
-        defaultValue={email}
+        value={inputValues.email}
         wrapperClassName={isEditing ? editingStyles : "pointer-events-none"}
-        inputClassName=""
+        errorMsg={
+          state && "email" in state && Array.isArray(state.email)
+            ? state.email?.[0]
+            : ""
+        }
+        onChange={(e) => {
+          setInputValues((prev) => ({ ...prev, email: e.target.value }));
+        }}
         onKeyDown={(ev) => {
           if (!isEditing && ev.key !== "Tab") ev.preventDefault();
         }}
@@ -102,7 +167,13 @@ export default function UserDataSection({
       </div>
       {isEditing && (
         <div className="flex gap-5">
-          <Button variant="edit" type="submit">
+          <Button
+            variant="edit"
+            type="submit"
+            onClick={() => {
+              router.replace(pathname);
+            }}
+          >
             Submit
           </Button>
           <Button

@@ -24,9 +24,9 @@ export default async function Profile() {
           <StyledLink href="#">Profile</StyledLink>
         </div>
         <UserDataTopSection
-          cover={userInfo.cover || ""}
-          firstName={userInfo.first_name}
-          lastName={userInfo.last_name}
+          image={userInfo.image || ""}
+          first_name={userInfo.first_name}
+          last_name={userInfo.last_name}
           bio={userInfo.bio || "N/A"}
           email={userInfo.email || "N/A"}
         />
@@ -54,10 +54,11 @@ export default async function Profile() {
           </Button>
         </div>
         <UserDataSection
-          firstName={userInfo.first_name || "N/A"}
-          lastName={userInfo.last_name || "N/A"}
+          first_name={userInfo.first_name || "N/A"}
+          last_name={userInfo.last_name || "N/A"}
           phone={userInfo.phone || "N/A"}
           email={userInfo.email || "N/A"}
+          bio={userInfo.bio}
         />
       </section>
     </section>

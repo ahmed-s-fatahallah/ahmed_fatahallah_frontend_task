@@ -14,7 +14,7 @@ export default async function Header() {
       >
         <NotificationIcon />
       </Button>
-      <UserMenu imgSrc={userInfo.cover} />
+      <UserMenu imgSrc={userInfo.image} />
     </header>
   );
 }
