@@ -15,15 +15,18 @@ const loginSchema = z.object({
 });
 
 const editUserDataSchema = z.object({
-  first_name: z.string().min(2, "Name must have min of 2 characters"),
-  last_name: z.string().min(2, "Name must have min of 2 characters"),
+  first_name: z
+    .string()
+    .min(2, "Name must have min of 2 characters")
+    .nullable(),
+  last_name: z.string().min(2, "Name must have min of 2 characters").nullable(),
   phone: z
     .string()
     .min(10, "Phone number must have at least 10 digits")
     .max(14, "Phone number must have not be more than 14 digits")
-    .optional(),
-  email: z.string().email("Please enter a valid email address"),
-  bio: z.string().optional(),
+    .nullable(),
+  email: z.string().email("Please enter a valid email address").nullable(),
+  bio: z.string().nullable(),
 });
 
 export const login = async (prevState: any, formData: FormData) => {
@@ -92,14 +95,14 @@ export const editUser = async (prevState: UserBaseData, formData: FormData) => {
     last_name: formData.get("lastName"),
     phone: formData.get("mobileNumber"),
     email: formData.get("email"),
+    bio: formData.get("bio"),
   });
 
   if (!result.success) {
     return result.error.flatten().fieldErrors;
   }
-
   const modifiedBody: Partial<
-    Record<keyof UserBaseData, string | number | undefined>
+    Record<keyof UserBaseData, string | number | undefined | null>
   > = {};
 
   Object.keys(prevState).forEach((key) => {

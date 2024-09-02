@@ -1,12 +1,12 @@
 "use client";
 
-import CaseIcon from "@/assets/images/briefcase 04.svg";
 import EditIcon from "@/assets/images/edit.svg";
 import EnvlopeIcon from "@/assets/images/gmail.svg";
 import Button from "@/Components/Button";
 import { UserBaseData, UserInfo } from "@/types";
 import Image from "next/image";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import BioForm from "./BioForm";
 
 export default function UserDataTopSection({
   first_name,
@@ -31,10 +31,7 @@ export default function UserDataTopSection({
       <h1 className="col-start-2 col-span-1 row-start-1 text-2xl leading-9 font-semibold">
         {first_name || last_name ? `${first_name} ${last_name}` : "N/A"}
       </h1>
-      <h2 className="col-start-2 col-span-1 row-start-2 font-light flex items-center gap-[10px]">
-        <CaseIcon />
-        <span>{bio}</span>
-      </h2>
+      <BioForm bio={bio} />
       <h2 className="col-start-2 col-span-1 row-start-3 font-light flex items-center gap-[10px]">
         <EnvlopeIcon />
         <span>{email}</span>
