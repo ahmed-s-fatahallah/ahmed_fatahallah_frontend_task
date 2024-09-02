@@ -52,7 +52,7 @@ export default function UserDataSection({
 
   return (
     <form
-      className="pe-[6px] grid grid-cols-2 gap-5"
+      className="pe-[6px] grid grid-cols-2 gap-5 max-[600px]:grid-cols-1"
       action={editAction}
       noValidate
     >

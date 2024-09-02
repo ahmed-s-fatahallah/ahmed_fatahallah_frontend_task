@@ -10,7 +10,7 @@ export default async function Profile() {
   const userInfo = await getUserInfo();
 
   return (
-    <section className="mt-[38px] flex-1 pe-[60px]">
+    <section className="mt-[38px] flex-1 max-[1220px]:px-[60px] max-lg:px-[20px] max-[600px]:max-w-full">
       <section className="px-3">
         <div
           className={`${inter.className} flex gap-[14.3px] items-center mb-[30px] font-semibold`}
@@ -27,7 +27,7 @@ export default async function Profile() {
           email={userInfo.email || "N/A"}
         />
       </section>
-      <section className="w-fit mt-6">
+      <section className="w-fit mt-6 max-[600px]:w-auto">
         <TabsContainer />
         <UserDataSection
           first_name={userInfo.first_name || "N/A"}

@@ -32,7 +32,7 @@ export default function BioForm({ bio }: Pick<UserInfo, "bio">) {
   return (
     <form
       action={editAction}
-      className="col-start-2 col-span-1 row-start-2 flex justify-between items-center"
+      className="col-start-2 col-span-1 row-start-2 flex justify-between items-center max-[600px]:col-start-1 max-[600px]:row-start-3"
       noValidate
       onSubmit={(ev) => {
         ev.currentTarget.requestSubmit();

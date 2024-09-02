@@ -14,17 +14,26 @@ import Button from "@/Components/Button";
 import StyledLink from "@/Components/StyledLink";
 import { isActive } from "@/Utils/utils";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
 export default function SideBar() {
   const [currentActiveMenu, setCurrentActiveMenu] = useState("employee");
-
+  const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
+  const searchParams = useSearchParams();
   const pathname = usePathname();
 
   useEffect(() => {
     if (!pathname.match(/employees|holidays/)) setCurrentActiveMenu("");
   }, [pathname]);
+
+  useEffect(() => {
+    if (searchParams.has("side_menu")) {
+      setIsSideMenuOpen(true);
+    } else {
+      setIsSideMenuOpen(false);
+    }
+  }, [searchParams]);
 
   const activateLinkBgStyles = (route: string) =>
     isActive(pathname, route)
@@ -32,7 +41,11 @@ export default function SideBar() {
       : "hover:bg-light-gray";
 
   return (
-    <aside className="py-10 px-7 min-h-dvh mt-[-94px]">
+    <aside
+      className={`py-10 px-7 min-h-dvh mt-[-94px] max-[1220px]:fixed max-[1220px]:bg-white max-[1220px]:px-0 max-[1220px]:min-h-0 max-[1220px]:bottom-0 ${
+        !isSideMenuOpen ? "max-[1220px]:-translate-x-full" : ""
+      } transition z-10`}
+    >
       <section className="w-[329px] border-[1px] border-dark-gray-3 rounded-[40px] drop-shadow-sm min-h-full">
         <header>
           <Link href="/">

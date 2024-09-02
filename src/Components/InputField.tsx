@@ -14,12 +14,12 @@ interface InputFieldProps extends ComponentPropsWithRef<"input"> {
 }
 
 const wrapperVariantStyleMapper: VariantStyleMappers = {
-  login: "mb-5",
+  login: "mb-5 max-w-[545px] mx-auto max-md:mx-6",
   profile: "border-dark-gray-4 border-b-[1px]",
 } as const;
 
 const inputVariantStylesMapper: VariantStyleMappers = {
-  login: "w-[545px] py-3 px-4 border-[1px] border-dark-gray rounded-[10px]",
+  login: "py-3 px-4 border-[1px] border-dark-gray rounded-[10px]",
   profile: "font-light text-dark-blue-1 mb-[10px] disabled:bg-white outline-0",
 } as const;
 
