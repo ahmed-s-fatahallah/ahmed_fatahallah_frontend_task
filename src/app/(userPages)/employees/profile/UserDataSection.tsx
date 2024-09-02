@@ -21,7 +21,7 @@ export default function UserDataSection({
 
   const isEditing = searchParams.has("edit");
   const editingStyles =
-    " border-solid border-light-red-2 border-b-2 pointer-events-auto";
+    "border-solid border-light-red-2 border-b-2 pointer-events-auto";
 
   return (
     <form className="pe-[6px] grid grid-cols-2 gap-5" noValidate>
@@ -100,17 +100,22 @@ export default function UserDataSection({
           className="text-light-red-2"
         />
       </div>
-      <div>
-        <Button type="submit">Submit</Button>
-        <Button
-          type="reset"
-          onClick={() => {
-            router.replace(pathname);
-          }}
-        >
-          Cancel
-        </Button>
-      </div>
+      {isEditing && (
+        <div className="flex gap-5">
+          <Button variant="edit" type="submit">
+            Submit
+          </Button>
+          <Button
+            variant="cancel"
+            type="reset"
+            onClick={() => {
+              router.replace(pathname);
+            }}
+          >
+            Cancel
+          </Button>
+        </div>
+      )}
     </form>
   );
 }
