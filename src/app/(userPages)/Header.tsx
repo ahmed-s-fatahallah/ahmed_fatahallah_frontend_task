@@ -1,7 +1,6 @@
-import NotificationIcon from "@/assets/images/notification.svg";
+import NotificationIcon from "@/assets/images/notificationIcon.svg";
 import Button from "@/Components/Button";
 import { cookies } from "next/headers";
-import Image from "next/image";
 import { redirect, RedirectType } from "next/navigation";
 import UserMenu from "./UserMenu";
 
