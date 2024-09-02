@@ -5,6 +5,7 @@ import { revalidatePath } from "next/cache";
 import { cookies } from "next/headers";
 import { redirect, RedirectType } from "next/navigation";
 import { z } from "zod";
+import { routes } from "./Utils/Network";
 
 // zod login validation schema
 const loginSchema = z.object({
@@ -56,14 +57,11 @@ export const login = async (prevState: any, formData: FormData) => {
   params.append("password", result.data.password);
 
   try {
-    const res = await fetch(
-      "https://cyparta-backend-gf7qm.ondigitalocean.app/api/login/",
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: params.toString(),
-      }
-    );
+    const res = await fetch(routes.login, {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: params.toString(),
+    });
 
     const data = await res.json();
 
@@ -89,10 +87,10 @@ export const getUserInfo = async () => {
 
   if (!token) redirect("/login", RedirectType.replace);
 
-  const res = await fetch(
-    "https://cyparta-backend-gf7qm.ondigitalocean.app/api/profile/",
-    { method: "GET", headers: { Authorization: `Bearer ${token.value}` } }
-  );
+  const res = await fetch(routes.profile, {
+    method: "GET",
+    headers: { Authorization: `Bearer ${token.value}` },
+  });
 
   if (!res.ok) throw new Error("failed to fetch user data");
 
@@ -137,18 +135,15 @@ export const editUser = async (prevState: UserBaseData, formData: FormData) => {
   });
 
   try {
-    const res = await fetch(
-      "https://cyparta-backend-gf7qm.ondigitalocean.app/api/profile/",
-      {
-        method: "PATCH",
+    const res = await fetch(routes.profile, {
+      method: "PATCH",
 
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token.value}`,
-        },
-        body: JSON.stringify(modifiedBody),
-      }
-    );
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token.value}`,
+      },
+      body: JSON.stringify(modifiedBody),
+    });
 
     const data = await res.json();
 

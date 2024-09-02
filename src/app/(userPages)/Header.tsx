@@ -10,18 +10,24 @@ import UserMenu from "./UserMenu";
  * @return {JSX.Element} The JSX element representing the application header.
  */
 export default async function Header() {
-  const userInfo = await getUserInfo();
+  try {
+    const userInfo = await getUserInfo();
 
-  return (
-    <header className="flex justify-end gap-9 px-24 pt-[34px] max-[600px]:px-3">
-      <HamburgerBtn />
-      <Button
-        type="button"
-        className="w-[50px] h-[50px] flex items-center justify-center bg-dark-gray-4 rounded-[10px]"
-      >
-        <NotificationIcon />
-      </Button>
-      <UserMenu imgSrc={userInfo.image} />
-    </header>
-  );
+    return (
+      <header className="flex justify-end gap-9 px-24 pt-[34px] max-[600px]:px-3">
+        <HamburgerBtn />
+        <Button
+          type="button"
+          className="w-[50px] h-[50px] flex items-center justify-center bg-dark-gray-4 rounded-[10px]"
+        >
+          <NotificationIcon />
+        </Button>
+        <UserMenu imgSrc={userInfo.image} />
+      </header>
+    );
+  } catch (error) {
+    if (error instanceof Error) {
+      console.error(error.message);
+    }
+  }
 }

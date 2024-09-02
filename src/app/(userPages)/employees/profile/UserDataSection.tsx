@@ -53,7 +53,7 @@ export default function UserDataSection({
       email: state?.email,
       phone: state?.phone,
     });
-  }, [state]);
+  }, [state, searchParams]);
 
   const isEditing = searchParams.has("edit");
 
