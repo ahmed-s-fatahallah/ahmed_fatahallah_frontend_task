@@ -1,36 +1,105 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+- [Frontend Task for Cyparta by Ahmed Saeed Fatahallah](#frontend-task-for-cyparta-by-ahmed-saeed-fatahallah)
+  - [Installation](#installation)
+  - [Run the App](#run-the-app)
+  - [Navigate the App](#navigate-the-app)
+  - [folder structure](#folder-structure)
 
-## Getting Started
+# Frontend Task for Cyparta by Ahmed Saeed Fatahallah
 
-First, run the development server:
+## Installation
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+1. Start by installing all dependencies by opening the console and running `npm install`.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Run the App
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. When the installation is complete, start the app by running `npm run dev`.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Navigate the App
 
-## Learn More
+1. The app will start on the home page. Click on the **_Go to Login Page_** button to navigate to the login page.
+2. Enter the username and password into the respective input fields to log in. Both inputs are required and will show an error message if left empty or if the username or password is incorrect:
+   - Username: **test@task.com**
+   - Password: **123456**
+3. Click on the **_Login_** button to log in.
+4. Once logged in, you will be redirected to the profile page with the user data fetched.
+5. You can **click** the user photo in the header to show the dropdown menu for the **_Logout_** button. If you click **_Logout_**, you will be redirected back to the login page.
+6. On the profile page, you will find a static sidebar on the left for navigation. You can use it to navigate to other pages, but they are not implemented. You can also click on the company's logo to navigate to the home page.
+7. On the profile page, you will find the user data in two sections:
+   - Upper section with fields for **_User Photo_**, **_Name_**, **_Bio_**, **_Email_**, and an **_Edit Profile_** button.
+8. Click on the **_pen icon_** next to the bio field to edit it. You can submit your changes by pressing Enter after you are done.
+9. Click on the **_Edit Profile_** button to start editing the user data in the lower section.
+10. When the edit mode is activated, the bottom borders will change color to `red`. You can start editing, and when you are done, you can submit by clicking on the **_Submit_** button or abort by clicking on the **_Cancel_** button.
 
-To learn more about Next.js, take a look at the following resources:
+**_Note_**: The edit endpoint returns the same email even after changing it.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## folder structure
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+📦src
+┣ 📂Components
+┃ ┣ 📜Button.tsx
+┃ ┣ 📜HamburgerBtn.tsx
+┃ ┣ 📜InputField.tsx
+┃ ┣ 📜ProfileDataField.tsx
+┃ ┗ 📜StyledLink.tsx
+┣ 📂Utils
+┃ ┣ 📜Network.ts
+┃ ┣ 📜fonts.ts
+┃ ┗ 📜utils.ts
+┣ 📂app
+┃ ┣ 📂(userPages)
+┃ ┃ ┣ 📂advanced_payment
+┃ ┃ ┃ ┗ 📜page.tsx
+┃ ┃ ┣ 📂dashboard
+┃ ┃ ┃ ┗ 📜page.tsx
+┃ ┃ ┣ 📂employees
+┃ ┃ ┃ ┣ 📂attendance
+┃ ┃ ┃ ┃ ┗ 📜page.tsx
+┃ ┃ ┃ ┣ 📂profile
+┃ ┃ ┃ ┃ ┣ 📜BioForm.tsx
+┃ ┃ ┃ ┃ ┣ 📜TabsContainer.tsx
+┃ ┃ ┃ ┃ ┣ 📜UserDataSection.tsx
+┃ ┃ ┃ ┃ ┣ 📜UserDataTopSection.tsx
+┃ ┃ ┃ ┃ ┗ 📜page.tsx
+┃ ┃ ┃ ┗ 📂tasks
+┃ ┃ ┃ ┃ ┗ 📜page.tsx
+┃ ┃ ┣ 📂holidays
+┃ ┃ ┃ ┗ 📂holyday
+┃ ┃ ┃ ┃ ┗ 📜page.tsx
+┃ ┃ ┣ 📂payroll
+┃ ┃ ┃ ┗ 📜page.tsx
+┃ ┃ ┣ 📜Header.tsx
+┃ ┃ ┣ 📜SideBar.tsx
+┃ ┃ ┣ 📜UserMenu.tsx
+┃ ┃ ┣ 📜error.tsx
+┃ ┃ ┗ 📜layout.tsx
+┃ ┣ 📂login
+┃ ┃ ┣ 📜LoginForm.tsx
+┃ ┃ ┣ 📜SubmitButton.tsx
+┃ ┃ ┗ 📜page.tsx
+┃ ┣ 📜HomeBtn.tsx
+┃ ┣ 📜globals.css
+┃ ┣ 📜layout.tsx
+┃ ┗ 📜page.tsx
+┣ 📂assets
+┃ ┣ 📂images
+┃ ┃ ┣ 📜.DS_Store
+┃ ┃ ┣ 📜Vector.svg
+┃ ┃ ┣ 📜akar-icons_dashboard.svg
+┃ ┃ ┣ 📜briefcase 04.svg
+┃ ┃ ┣ 📜calendar-check.svg
+┃ ┃ ┣ 📜carbon_task.svg
+┃ ┃ ┣ 📜clarity_employee-group-line.svg
+┃ ┃ ┣ 📜coin-dollar.svg
+┃ ┃ ┣ 📜cypartal_logo.svg
+┃ ┃ ┣ 📜document-text.svg
+┃ ┃ ┣ 📜edit.svg
+┃ ┃ ┣ 📜file 01.svg
+┃ ┃ ┣ 📜gmail.svg
+┃ ┃ ┣ 📜icon \_wallet.svg
+┃ ┃ ┣ 📜lock.svg
+┃ ┃ ┣ 📜notificationIcon.svg
+┃ ┃ ┗ 📜user.svg
+┃ ┗ 📜.DS_Store
+┣ 📜.DS_Store
+┣ 📜actions.ts
+┗ 📜types.ts
