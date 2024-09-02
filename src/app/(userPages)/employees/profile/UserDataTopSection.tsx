@@ -46,7 +46,8 @@ export default function UserDataTopSection({
       </h2>
       <Button
         variant="edit"
-        className="col-start-3 col-span-1 row-start-2 -row-end-1 place-self-end"
+        disabled={searchParams.has("edit")}
+        className="col-start-3 col-span-1 row-start-2 -row-end-1 place-self-end disabled:bg-dark-gray-5 hover:bg-dark-gray"
         onClick={() => {
           if (searchParams.has("edit")) {
             router.push(`${pathname}`);
