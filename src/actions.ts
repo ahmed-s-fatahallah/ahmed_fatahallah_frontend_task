@@ -1,5 +1,6 @@
 "use server";
 
+import { UserInfo } from "@/types";
 import { cookies } from "next/headers";
 import { redirect, RedirectType } from "next/navigation";
 import { z } from "zod";
@@ -49,6 +50,23 @@ export const login = async (prevState: any, formData: FormData) => {
     }
   }
   redirect("/employees/profile", RedirectType.replace);
+};
+
+export const getUserInfo = async () => {
+  const token = cookies().get("access");
+
+  if (!token) redirect("/login", RedirectType.replace);
+
+  const res = await fetch(
+    "https://cyparta-backend-gf7qm.ondigitalocean.app/api/profile/",
+    { method: "GET", headers: { Authorization: `Bearer ${token.value}` } }
+  );
+
+  if (!res.ok) throw new Error("failed to fetch user data");
+
+  const data: UserInfo = await res.json();
+
+  return data;
 };
 
 export const logout = async () => {

@@ -1,3 +1,4 @@
+import { getUserInfo } from "@/actions";
 import CaseIcon from "@/assets/images/briefcase 04.svg";
 import DocIcon from "@/assets/images/document-text.svg";
 import LockIcon from "@/assets/images/lock.svg";
@@ -8,7 +9,6 @@ import StyledLink from "@/Components/StyledLink";
 import { inter } from "@/Utils/fonts";
 import UserDataSection from "./UserDataSection";
 import UserDataTopSection from "./UserDataTopSection";
-import { getUserInfo } from "../../Header";
 
 export default async function Profile() {
   const userInfo = await getUserInfo();
