@@ -1,6 +1,6 @@
 import { lexend } from "@/Utils/fonts";
 import SideBar from "@/app/(userPages)/SideBar";
-import { ReactNode } from "react";
+import { ReactNode, Suspense } from "react";
 import Header from "./Header";
 
 /**
@@ -16,8 +16,10 @@ export default function layout({
     <>
       <Header />
       <main className={`flex text-dark-gray-1 ${lexend.className}`}>
-        <SideBar />
-        {children}
+        <Suspense fallback={<p>Loading ...</p>}>
+          <SideBar />
+          {children}
+        </Suspense>
       </main>
     </>
   );
