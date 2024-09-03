@@ -18,10 +18,10 @@ export default function Home() {
 
   return (
     <section className="h-screen flex flex-col justify-center items-center gap-8">
-      <h1 className="text-center text-3xl font-bold">
+      <h1 className="text-center text-3xl font-bold animate-[enter-t_600ms_ease-in]">
         Welcome to Ahmed Saeed&apos;s Cyparta Frontend Task
       </h1>
-      <CypartaIcon className="mx-auto mb-8" />
+      <CypartaIcon className="mx-auto mb-8 animate-[fade-in_600ms_ease-in]" />
       <HomeBtn isUser={isUser} />
     </section>
   );
