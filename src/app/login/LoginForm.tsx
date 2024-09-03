@@ -23,7 +23,7 @@ export default function LoginForm() {
       action={loginAction}
       className="border-[0.6px] border-light-gray rounded-2xl max-md:mx-6"
     >
-      <div className="my-[84px] mx-auto text-[17px] font-semibold leading-8 text-dark-gray-2">
+      <div className="my-[84px] mx-auto text-[17px] font-semibold leading-8 text-dark-gray-2 max-w-[90%]">
         <p className="text-light-red-2 font-semibold">
           {state && "message" in state && state?.message}
         </p>

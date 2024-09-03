@@ -14,7 +14,7 @@ interface InputFieldProps extends ComponentPropsWithRef<"input"> {
 }
 
 const wrapperVariantStyleMapper: VariantStyleMappers = {
-  login: "mb-5 max-w-[545px] mx-auto max-md:mx-6",
+  login: "mb-5 max-w-[545px]  max-md:mx-6",
   profile: "border-dark-gray-4 border-b-[1px]",
 } as const;
 
