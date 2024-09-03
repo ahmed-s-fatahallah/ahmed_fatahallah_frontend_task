@@ -3,6 +3,11 @@ import { cookies } from "next/headers";
 import Link from "next/link";
 import { redirect, RedirectType } from "next/navigation";
 import LoginForm from "./LoginForm";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Login Page",
+};
 
 /**
  * Login page component. Handles the login page functionality, checking for an existing access token and redirecting to the employee profile page if found.

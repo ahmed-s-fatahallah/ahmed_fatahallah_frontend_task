@@ -6,6 +6,14 @@ import TabsContainer from "./TabsContainer";
 import UserDataSection from "./UserDataSection";
 import UserDataTopSection from "./UserDataTopSection";
 
+export async function generateMetadata() {
+  const userInfo = await getUserInfo();
+
+  return {
+    title: `${userInfo?.first_name} ${userInfo?.last_name}`,
+  };
+}
+
 /**
  * A the profile page component. Handles the user's profile page functionality.
  *
@@ -16,7 +24,10 @@ export default async function Profile() {
     const userInfo = await getUserInfo();
 
     return (
-      <section className="mt-[38px] flex-1 max-[1220px]:px-[60px] max-lg:px-[20px] max-[600px]:max-w-full">
+      <section
+        id="profileWrapper"
+        className="mt-[38px] flex-1 max-[1220px]:px-[60px] max-lg:px-[20px] max-[600px]:max-w-full"
+      >
         <section className="px-3">
           <div
             className={`${inter.className} flex gap-[14.3px] items-center mb-[30px] font-semibold`}

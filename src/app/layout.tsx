@@ -5,8 +5,25 @@ import "./globals.css";
 
 // Main meta data object
 export const metadata: Metadata = {
-  title: "Frontend Task",
+  //  Primary Meta Tags
+  title: "Cyparta Frontend Task",
   description: "Ahmed Saeed's Cyparta Frontend Task",
+  //  Open Graph / Facebook
+  openGraph: {
+    title: "Cyparta Frontend Task",
+    description: "Ahmed Saeed's Cyparta Frontend Task",
+    url: "",
+    siteName: "Cyparta task",
+  },
+
+  //  Twitter
+  twitter: {
+    card: "summary_large_image",
+    title: "Cyparta Frontend Task",
+    description: "Ahmed Saeed's Cyparta Frontend Task",
+    creator: "Ahmed Saeed",
+    site: "",
+  },
 };
 
 /**
