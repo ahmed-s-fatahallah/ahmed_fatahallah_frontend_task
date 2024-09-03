@@ -4,7 +4,7 @@ import { PluginAPI } from "tailwindcss/types/config";
 const config: Config = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/Components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
@@ -55,20 +55,6 @@ const config: Config = {
         input: { display: "block", width: "100%" },
       });
     },
-  ],
-  safelist: [
-    "light-gray",
-    "light-gray-1",
-    "light-red-1",
-    "light-red-2",
-    "light-red-3",
-    "dark-gray",
-    "dark-gray-1",
-    "dark-gray-2",
-    "dark-gray-3",
-    "dark-gray-4",
-    "dark-gray-5",
-    "dark-blue-1",
   ],
 };
 export default config;
