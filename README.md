@@ -2,6 +2,7 @@
   - [Installation](#installation)
   - [Run the App](#run-the-app)
   - [Navigate the App](#navigate-the-app)
+  - [Unit tests](#unit-tests)
   - [folder structure](#folder-structure)
 
 # Frontend Task for Cyparta by Ahmed Saeed Fatahallah
@@ -31,6 +32,13 @@
 10. When the edit mode is activated, the bottom borders will change color to `red`. You can start editing, and when you are done, you can submit by clicking on the **_Submit_** button or abort by clicking on the **_Cancel_** button.
 
 **_Note_**: The edit endpoint returns the same email even after changing it.
+
+## Unit tests
+
+1. Used **_vitest_** and react **_testing library_**
+2. Added tests for React components and Pages.
+3. Made sure all tests have passed successfully.
+4. You can run unit tests by running the command `npm run test` which will run all the tests
 
 ## folder structure
 
