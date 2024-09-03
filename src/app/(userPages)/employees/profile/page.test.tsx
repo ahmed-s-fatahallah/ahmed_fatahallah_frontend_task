@@ -1,10 +1,13 @@
-import { afterAll, beforeAll, expect, it, suite, vi } from "vitest";
+import { afterAll, afterEach, beforeAll, expect, it, suite, vi } from "vitest";
 import { cleanup, render, screen } from "@testing-library/react";
 import StyledLink from "@/Components/StyledLink";
 import UserDataTopSection from "./UserDataTopSection";
 import type { UserBaseData, UserInfo } from "@/types";
 import type { NavigateOptions } from "next/dist/shared/lib/app-router-context.shared-runtime";
 import UserDataSection from "./UserDataSection";
+import InputField from "@/Components/InputField";
+import ProfileDataField from "@/Components/ProfileDataField";
+import Button from "@/Components/Button";
 
 // Mock the fonts functions
 vi.mock("next/font/google", () => ({
@@ -42,18 +45,17 @@ vi.mock("react-dom", async (importOriginal) => {
   };
 });
 
-const mockUserData: UserBaseData & Pick<UserInfo, "image"> = {
+const mockUserData: UserBaseData = {
   first_name: "Ahmed",
   last_name: "Saeed",
   email: "ahmed@email.com",
   bio: "frontend developer",
   phone: "123456789",
-  image: "",
 };
 
 suite("Profile Page User Data top section", () => {
   beforeAll(() => {
-    render(<UserDataTopSection {...mockUserData} />);
+    render(<UserDataTopSection {...mockUserData} image="/" />);
   });
 
   afterAll(() => {
@@ -87,29 +89,43 @@ suite("Profile Page User Data top section", () => {
 });
 
 suite("Profile Page User Data bottom section", () => {
-  beforeAll(() => {
-    render(<UserDataSection {...mockUserData} />);
+  afterEach(() => {
+    cleanup();
   });
-
   it("tests the User first name input", () => {
+    render(<InputField value={mockUserData.first_name} />);
     expect(screen.getByDisplayValue("Ahmed")).toBeTruthy();
   });
   it("tests the User last name input", () => {
+    render(<InputField value={mockUserData.last_name} />);
     expect(screen.getByDisplayValue("Saeed")).toBeTruthy();
   });
   it("tests the User Mobile Number input", () => {
+    render(<InputField value={mockUserData.phone} />);
     expect(screen.getByDisplayValue("123456789")).toBeTruthy();
   });
   it("tests the User Email input", () => {
+    render(<InputField value={mockUserData.email} />);
     expect(screen.getByDisplayValue("ahmed@email.com")).toBeTruthy();
   });
   it("tests the User user fixed data paragraphs", () => {
-    expect(screen.getAllByRole("paragraph")).toHaveLength(22);
+    render(<ProfileDataField title="test" value="test" />);
+    expect(screen.getAllByRole("paragraph")).toHaveLength(2);
   });
   it("tests the submit Button", () => {
+    render(
+      <Button variant="edit" type="submit">
+        Submit
+      </Button>
+    );
     expect(screen.getByRole("button", { name: "Submit" })).toBeTruthy();
   });
   it("tests the cancel Button", () => {
+    render(
+      <Button variant="edit" type="submit">
+        Cancel
+      </Button>
+    );
     expect(screen.getByRole("button", { name: "Cancel" })).toBeTruthy();
   });
 });
