@@ -3,7 +3,7 @@
 import EditIcon from "@/assets/images/edit.svg";
 import EnvlopeIcon from "@/assets/images/gmail.svg";
 import Button from "@/Components/Button";
-import { UserBaseData, UserInfo } from "@/types";
+import type { UserBaseData, UserInfo } from "@/types";
 import Image from "next/image";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import BioForm from "./BioForm";

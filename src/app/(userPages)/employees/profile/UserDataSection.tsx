@@ -3,7 +3,7 @@ import { editUser } from "@/actions";
 import Button from "@/Components/Button";
 import InputField from "@/Components/InputField";
 import ProfileDataField from "@/Components/ProfileDataField";
-import { UserBaseData } from "@/types";
+import type { UserBaseData } from "@/types";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useFormState } from "react-dom";

@@ -12,12 +12,7 @@ export default function SubmitButton({ children }: ComponentProps<"button">) {
   const { pending } = useFormStatus();
 
   return (
-    <Button
-      variant="login"
-      type="submit"
-      disabled={pending}
-      className="disabled:bg-dark-gray-5 hover:bg-dark-gray font-bold"
-    >
+    <Button variant="login" type="submit" disabled={pending}>
       {children}
     </Button>
   );

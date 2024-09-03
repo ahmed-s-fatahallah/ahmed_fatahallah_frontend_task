@@ -5,7 +5,7 @@ import CaseIcon from "@/assets/images/briefcase 04.svg";
 import EditIcon from "@/assets/images/edit.svg";
 import Button from "@/Components/Button";
 import InputField from "@/Components/InputField";
-import { UserInfo } from "@/types";
+import type { UserInfo } from "@/types";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useFormState } from "react-dom";
