@@ -6,6 +6,7 @@ import { cookies } from "next/headers";
 import { redirect, RedirectType } from "next/navigation";
 import { z } from "zod";
 import { routes } from "./Utils/Network";
+import { getChangedInputField } from "./Utils/utils";
 
 // zod login validation schema
 const loginSchema = z.object({
@@ -122,17 +123,10 @@ export const editUser = async (prevState: UserBaseData, formData: FormData) => {
   if (!result.success) {
     return result.error.flatten().fieldErrors;
   }
-  const modifiedBody: Partial<
-    Record<keyof UserBaseData, string | number | undefined | null>
-  > = {};
-
-  Object.keys(prevState).forEach((key) => {
-    const typedKey = key as keyof UserBaseData;
-
-    if (prevState[typedKey] != result.data[typedKey]) {
-      modifiedBody[typedKey] = result.data[typedKey];
-    }
-  });
+  const modifiedBody = getChangedInputField(
+    prevState,
+    result.data as Record<keyof UserBaseData, string>
+  );
 
   try {
     const res = await fetch(routes.profile, {
@@ -146,7 +140,7 @@ export const editUser = async (prevState: UserBaseData, formData: FormData) => {
     });
 
     const data = await res.json();
-
+    console.log(modifiedBody);
     if (!res.ok) throw new Error("Failed to update user data");
 
     revalidatePath("/employees/profile");
