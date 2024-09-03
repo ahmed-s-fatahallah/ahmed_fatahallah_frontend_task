@@ -56,5 +56,19 @@ const config: Config = {
       });
     },
   ],
+  safelist: [
+    "light-gray",
+    "light-gray-1",
+    "light-red-1",
+    "light-red-2",
+    "light-red-3",
+    "dark-gray",
+    "dark-gray-1",
+    "dark-gray-2",
+    "dark-gray-3",
+    "dark-gray-4",
+    "dark-gray-5",
+    "dark-blue-1",
+  ],
 };
 export default config;
