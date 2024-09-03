@@ -1,10 +1,9 @@
-import { afterAll, afterEach, beforeAll, expect, it, suite, vi } from "vitest";
+import { afterAll, beforeAll, expect, it, suite, vi } from "vitest";
 import { cleanup, render, screen } from "@testing-library/react";
 import StyledLink from "@/Components/StyledLink";
 import UserDataTopSection from "./UserDataTopSection";
 import type { UserBaseData, UserInfo } from "@/types";
 import type { NavigateOptions } from "next/dist/shared/lib/app-router-context.shared-runtime";
-import { beforeEach } from "node:test";
 import UserDataSection from "./UserDataSection";
 
 // Mock the fonts functions
