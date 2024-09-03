@@ -32,6 +32,20 @@ const config: Config = {
       dropShadow: {
         sm: "1px 1px 3px 0px #CACACA26",
       },
+      keyframes: {
+        "enter-t": {
+          "0%": { transform: "translateY(-100%)", opacity: "0.5" },
+          "100%": { transform: "translateY(0)", opacity: "1" },
+        },
+        "enter-b": {
+          "0%": { transform: "translateY(100%)", opacity: "0.5" },
+          "100%": { transform: "translateY(0)", opacity: "1" },
+        },
+        "fade-in": {
+          "0%": { opacity: "0" },
+          "100%": { opacity: "1" },
+        },
+      },
     },
   },
   plugins: [
